@@ -10,7 +10,9 @@ export default function Home() {
       {/* NAVBAR */}
       {/* ========================= */}
 
-      <nav className="bg-black border-b border-orange-500 px-4 md:px-10 py-4 flex justify-between items-center sticky top-0 z-50">
+      <nav className="bg-black border-b border-orange-500 px-4 md:px-10 py-4 flex flex-col md:flex-row justify-between items-center gap-4 sticky top-0 z-50">
+
+        {/* LOGO */}
 
         <div className="flex items-center gap-3">
 
@@ -32,17 +34,20 @@ export default function Home() {
 
         </div>
 
-        <div className="flex items-center gap-3 md:gap-8 text-sm md:text-lg font-medium">
+
+        {/* MENU */}
+
+        <div className="flex flex-wrap justify-center items-center gap-3 md:gap-8 text-sm md:text-lg font-medium">
 
           <a href="#home" className="hover:text-orange-500 transition">
             Home
           </a>
 
-          <a href="#features" className="hover:text-orange-500 transition hidden md:block">
+          <a href="#features" className="hover:text-orange-500 transition">
             Features
           </a>
 
-          <a href="#about" className="hover:text-orange-500 transition hidden md:block">
+          <a href="#about" className="hover:text-orange-500 transition">
             About
           </a>
 
@@ -416,6 +421,7 @@ export default function Home() {
               </div>
 
             </div>
+
 
             {/* FORM */}
 
