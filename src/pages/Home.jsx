@@ -30,7 +30,7 @@ export default function Home() {
               </h1>
 
               <p className="text-gray-400 text-xs md:text-sm">
-                Smart Fitness Management
+                Smart AI-Based Fitness Management System
               </p>
 
             </div>
