@@ -18,11 +18,11 @@ export default function Home() {
 
   return (
 
-    <div className="bg-black min-h-screen text-white overflow-x-hidden">
+    <div className="bg-black min-h-screen text-white overflow-x-hidden pt-24">
 
       {/* NAVBAR */}
 
-      <nav className="bg-black border-b border-orange-500 px-4 md:px-10 py-4 sticky top-0 z-50">
+      <nav className="fixed top-0 left-0 w-full bg-black/90 backdrop-blur-md border-b border-orange-500 px-4 md:px-10 py-4 z-50">
 
         <div className="flex justify-between items-center">
 
