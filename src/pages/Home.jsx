@@ -7,64 +7,129 @@ export default function Home() {
     <div className="bg-black min-h-screen text-white overflow-x-hidden">
 
       {/* ========================= */}
-      {/* NAVBAR */}
-      {/* ========================= */}
+{/* NAVBAR */}
+{/* ========================= */}
 
-      <nav className="bg-black border-b border-orange-500 px-4 md:px-10 py-4 flex flex-col md:flex-row justify-between items-center gap-4 sticky top-0 z-50">
+<nav className="bg-black border-b border-orange-500 px-4 md:px-10 py-4 sticky top-0 z-50">
 
-        {/* LOGO */}
+  <div className="flex justify-between items-center">
 
-        <div className="flex items-center gap-3">
+    {/* LOGO */}
 
-          <div className="w-10 h-10 md:w-12 md:h-12 bg-orange-500 rounded-xl flex items-center justify-center text-white text-xl md:text-2xl font-bold">
-            M
-          </div>
+    <div className="flex items-center gap-3">
 
-          <div>
+      <div className="w-10 h-10 md:w-12 md:h-12 bg-orange-500 rounded-xl flex items-center justify-center text-white text-xl md:text-2xl font-bold">
+        M
+      </div>
 
-            <h1 className="text-xl md:text-3xl font-bold text-orange-500">
-              MyPersonal Trainer
-            </h1>
+      <div>
 
-            <p className="text-gray-400 text-xs md:text-sm">
-              Smart Fitness Management
-            </p>
+        <h1 className="text-xl md:text-3xl font-bold text-orange-500">
+          MyPersonal Trainer
+        </h1>
 
-          </div>
+        <p className="text-gray-400 text-xs md:text-sm">
+          Smart Fitness Management
+        </p>
 
-        </div>
+      </div>
+
+    </div>
 
 
-        {/* MENU */}
+    {/* DESKTOP MENU */}
 
-        <div className="flex flex-wrap justify-center items-center gap-3 md:gap-8 text-sm md:text-lg font-medium">
+    <div className="hidden md:flex items-center gap-8 text-lg font-medium">
 
-          <a href="#home" className="hover:text-orange-500 transition">
-            Home
-          </a>
+      <a href="#home" className="hover:text-orange-500 transition">
+        Home
+      </a>
 
-          <a href="#features" className="hover:text-orange-500 transition">
-            Features
-          </a>
+      <a href="#features" className="hover:text-orange-500 transition">
+        Features
+      </a>
 
-          <a href="#about" className="hover:text-orange-500 transition">
-            About
-          </a>
+      <a href="#about" className="hover:text-orange-500 transition">
+        About
+      </a>
 
-          <a href="#contact" className="hover:text-orange-500 transition">
-            Contact
-          </a>
+      <a href="#contact" className="hover:text-orange-500 transition">
+        Contact
+      </a>
 
-          <Link
-            to="/login"
-            className="bg-orange-500 text-white px-4 md:px-6 py-2 md:py-3 rounded-xl hover:bg-orange-600 transition"
-          >
-            Login
-          </Link>
+      <Link
+        to="/login"
+        className="bg-orange-500 text-white px-6 py-3 rounded-xl hover:bg-orange-600 transition"
+      >
+        Login
+      </Link>
 
-        </div>
+    </div>
 
-      </nav>
+
+    {/* MOBILE MENU BUTTON */}
+
+    <button
+      className="md:hidden text-3xl text-orange-500"
+      onClick={() => setMenuOpen(!menuOpen)}
+    >
+      ☰
+    </button>
+
+  </div>
+
+
+  {/* MOBILE MENU */}
+
+  {menuOpen && (
+
+    <div className="md:hidden flex flex-col gap-5 mt-6 bg-gray-900 p-6 rounded-2xl border border-orange-500 text-lg">
+
+      <a
+        href="#home"
+        onClick={() => setMenuOpen(false)}
+        className="hover:text-orange-500"
+      >
+        Home
+      </a>
+
+      <a
+        href="#features"
+        onClick={() => setMenuOpen(false)}
+        className="hover:text-orange-500"
+      >
+        Features
+      </a>
+
+      <a
+        href="#about"
+        onClick={() => setMenuOpen(false)}
+        className="hover:text-orange-500"
+      >
+        About
+      </a>
+
+      <a
+        href="#contact"
+        onClick={() => setMenuOpen(false)}
+        className="hover:text-orange-500"
+      >
+        Contact
+      </a>
+
+      <Link
+        to="/login"
+        onClick={() => setMenuOpen(false)}
+        className="bg-orange-500 text-white px-6 py-3 rounded-xl text-center hover:bg-orange-600 transition"
+      >
+        Login
+      </Link>
+
+    </div>
+
+  )}
+
+</nav>
 
 
       {/* ========================= */}
