@@ -4,45 +4,45 @@ export default function Home() {
 
   return (
 
-    <div className="bg-black min-h-screen text-white">
+    <div className="bg-black min-h-screen text-white overflow-x-hidden">
 
       {/* ========================= */}
       {/* NAVBAR */}
       {/* ========================= */}
 
-      <nav className="bg-black border-b border-orange-500 px-10 py-5 flex justify-between items-center sticky top-0 z-50">
+      <nav className="bg-black border-b border-orange-500 px-4 md:px-10 py-4 flex justify-between items-center sticky top-0 z-50">
 
         <div className="flex items-center gap-3">
 
-          <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center text-white text-2xl font-bold">
+          <div className="w-10 h-10 md:w-12 md:h-12 bg-orange-500 rounded-xl flex items-center justify-center text-white text-xl md:text-2xl font-bold">
             M
           </div>
 
           <div>
 
-            <h1 className="text-3xl font-bold text-orange-500">
+            <h1 className="text-xl md:text-3xl font-bold text-orange-500">
               MyPersonal Trainer
             </h1>
 
-            <p className="text-gray-400 text-sm">
-              Smart Fitness Management System
+            <p className="text-gray-400 text-xs md:text-sm">
+              Smart Fitness Management
             </p>
 
           </div>
 
         </div>
 
-        <div className="flex items-center gap-8 text-lg font-medium">
+        <div className="flex items-center gap-3 md:gap-8 text-sm md:text-lg font-medium">
 
           <a href="#home" className="hover:text-orange-500 transition">
             Home
           </a>
 
-          <a href="#features" className="hover:text-orange-500 transition">
+          <a href="#features" className="hover:text-orange-500 transition hidden md:block">
             Features
           </a>
 
-          <a href="#about" className="hover:text-orange-500 transition">
+          <a href="#about" className="hover:text-orange-500 transition hidden md:block">
             About
           </a>
 
@@ -52,7 +52,7 @@ export default function Home() {
 
           <Link
             to="/login"
-            className="bg-orange-500 text-white px-6 py-3 rounded-xl hover:bg-orange-600 transition"
+            className="bg-orange-500 text-white px-4 md:px-6 py-2 md:py-3 rounded-xl hover:bg-orange-600 transition"
           >
             Login
           </Link>
@@ -68,16 +68,16 @@ export default function Home() {
 
       <section
         id="home"
-        className="bg-gradient-to-r from-black via-gray-900 to-black py-32 px-10"
+        className="bg-gradient-to-r from-black via-gray-900 to-black py-16 md:py-32 px-4 md:px-10"
       >
 
-        <div className="max-w-7xl mx-auto grid grid-cols-2 gap-16 items-center">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
           {/* LEFT */}
 
           <div>
 
-            <h1 className="text-7xl font-extrabold leading-tight mb-8">
+            <h1 className="text-4xl md:text-7xl font-extrabold leading-tight mb-6 md:mb-8">
 
               Transform Your
               <br />
@@ -91,7 +91,7 @@ export default function Home() {
 
             </h1>
 
-            <p className="text-2xl text-gray-300 leading-relaxed mb-10">
+            <p className="text-lg md:text-2xl text-gray-300 leading-relaxed mb-8 md:mb-10">
 
               Powerful AI-based training management system
               to manage trainers, members, classes,
@@ -100,17 +100,17 @@ export default function Home() {
 
             </p>
 
-            <div className="flex gap-5">
+            <div className="flex flex-col sm:flex-row gap-4">
 
               <Link
                 to="/login"
-                className="bg-orange-500 text-white px-8 py-4 rounded-2xl text-xl font-bold hover:bg-orange-600 transition"
+                className="bg-orange-500 text-white px-8 py-4 rounded-2xl text-center text-lg md:text-xl font-bold hover:bg-orange-600 transition"
               >
                 Get Started
               </Link>
 
               <button
-                className="border border-orange-500 px-8 py-4 rounded-2xl text-xl hover:bg-orange-500 transition"
+                className="border border-orange-500 px-8 py-4 rounded-2xl text-lg md:text-xl hover:bg-orange-500 transition"
               >
                 Watch Demo
               </button>
@@ -124,53 +124,53 @@ export default function Home() {
 
           <div className="relative">
 
-            <div className="bg-gray-900 rounded-3xl p-8 shadow-2xl border border-orange-500">
+            <div className="bg-gray-900 rounded-3xl p-4 md:p-8 shadow-2xl border border-orange-500">
 
-              <div className="grid grid-cols-2 gap-5">
+              <div className="grid grid-cols-2 gap-4 md:gap-5">
 
-                <div className="bg-black rounded-2xl p-6">
+                <div className="bg-black rounded-2xl p-4 md:p-6">
 
-                  <h2 className="text-lg font-semibold mb-3 text-gray-300">
+                  <h2 className="text-sm md:text-lg font-semibold mb-2 md:mb-3 text-gray-300">
                     Total Members
                   </h2>
 
-                  <h1 className="text-5xl font-bold text-orange-500">
+                  <h1 className="text-3xl md:text-5xl font-bold text-orange-500">
                     1,240
                   </h1>
 
                 </div>
 
-                <div className="bg-black rounded-2xl p-6">
+                <div className="bg-black rounded-2xl p-4 md:p-6">
 
-                  <h2 className="text-lg font-semibold mb-3 text-gray-300">
+                  <h2 className="text-sm md:text-lg font-semibold mb-2 md:mb-3 text-gray-300">
                     Trainers
                   </h2>
 
-                  <h1 className="text-5xl font-bold text-orange-500">
+                  <h1 className="text-3xl md:text-5xl font-bold text-orange-500">
                     48
                   </h1>
 
                 </div>
 
-                <div className="bg-black rounded-2xl p-6">
+                <div className="bg-black rounded-2xl p-4 md:p-6">
 
-                  <h2 className="text-lg font-semibold mb-3 text-gray-300">
+                  <h2 className="text-sm md:text-lg font-semibold mb-2 md:mb-3 text-gray-300">
                     Attendance
                   </h2>
 
-                  <h1 className="text-5xl font-bold text-orange-500">
+                  <h1 className="text-3xl md:text-5xl font-bold text-orange-500">
                     94%
                   </h1>
 
                 </div>
 
-                <div className="bg-black rounded-2xl p-6">
+                <div className="bg-black rounded-2xl p-4 md:p-6">
 
-                  <h2 className="text-lg font-semibold mb-3 text-gray-300">
+                  <h2 className="text-sm md:text-lg font-semibold mb-2 md:mb-3 text-gray-300">
                     Revenue
                   </h2>
 
-                  <h1 className="text-5xl font-bold text-orange-500">
+                  <h1 className="text-3xl md:text-5xl font-bold text-orange-500">
                     ₹4.8L
                   </h1>
 
@@ -193,24 +193,24 @@ export default function Home() {
 
       <section
         id="features"
-        className="py-24 px-10 bg-black"
+        className="py-16 md:py-24 px-4 md:px-10 bg-black"
       >
 
         <div className="max-w-7xl mx-auto">
 
-          <div className="text-center mb-20">
+          <div className="text-center mb-16">
 
-            <h1 className="text-5xl font-bold mb-5 text-orange-500">
+            <h1 className="text-3xl md:text-5xl font-bold mb-5 text-orange-500">
               Powerful Features
             </h1>
 
-            <p className="text-xl text-gray-400">
+            <p className="text-lg md:text-xl text-gray-400">
               Everything you need to manage your fitness business
             </p>
 
           </div>
 
-          <div className="grid grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
 
             {[
               {
@@ -237,14 +237,14 @@ export default function Home() {
 
               <div
                 key={index}
-                className="bg-gray-900 p-10 rounded-3xl shadow-lg hover:shadow-orange-500/30 hover:-translate-y-2 transition border border-gray-800"
+                className="bg-gray-900 p-6 md:p-10 rounded-3xl shadow-lg hover:shadow-orange-500/30 hover:-translate-y-2 transition border border-gray-800"
               >
 
-                <div className="text-6xl mb-6">
+                <div className="text-5xl md:text-6xl mb-6">
                   {item.icon}
                 </div>
 
-                <h2 className="text-3xl font-bold mb-4 text-orange-500">
+                <h2 className="text-2xl md:text-3xl font-bold mb-4 text-orange-500">
                   {item.title}
                 </h2>
 
@@ -263,24 +263,22 @@ export default function Home() {
       </section>
 
 
-      {/* ========================= */}
       {/* ABOUT */}
-      {/* ========================= */}
 
       <section
         id="about"
-        className="py-24 px-10 bg-gray-950"
+        className="py-16 md:py-24 px-4 md:px-10 bg-gray-950"
       >
 
-        <div className="max-w-7xl mx-auto grid grid-cols-2 gap-20 items-center">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
 
           <div>
 
-            <h1 className="text-5xl font-bold mb-8 text-orange-500">
+            <h1 className="text-3xl md:text-5xl font-bold mb-8 text-orange-500">
               Why Choose Us?
             </h1>
 
-            <p className="text-xl text-gray-400 leading-relaxed mb-6">
+            <p className="text-lg md:text-xl text-gray-400 leading-relaxed mb-6">
 
               MyPersonal Trainer helps gyms and trainers
               digitize operations with AI-powered tools
@@ -289,7 +287,7 @@ export default function Home() {
 
             </p>
 
-            <p className="text-xl text-gray-400 leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-400 leading-relaxed">
 
               Built using modern scalable technologies
               with enterprise-level security.
@@ -298,7 +296,7 @@ export default function Home() {
 
           </div>
 
-          <div className="bg-black rounded-3xl p-10 shadow-xl border border-orange-500">
+          <div className="bg-black rounded-3xl p-6 md:p-10 shadow-xl border border-orange-500">
 
             <div className="space-y-8">
 
@@ -313,13 +311,13 @@ export default function Home() {
                   className="flex gap-5 items-start"
                 >
 
-                  <div className="text-4xl text-orange-500">
+                  <div className="text-3xl md:text-4xl text-orange-500">
                     ✔
                   </div>
 
                   <div>
 
-                    <h2 className="text-2xl font-bold mb-2 text-white">
+                    <h2 className="text-xl md:text-2xl font-bold mb-2 text-white">
                       {text}
                     </h2>
 
@@ -338,18 +336,18 @@ export default function Home() {
       </section>
 
 
-      {/* CONTACT SECTION */}
+      {/* CONTACT */}
 
       <section
         id="contact"
-        className="py-20 bg-black"
+        className="py-16 md:py-20 bg-black"
       >
 
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
 
           <div className="text-center mb-12">
 
-            <h2 className="text-5xl font-bold text-orange-500 mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-orange-500 mb-4">
               Contact Us
             </h2>
 
@@ -359,7 +357,7 @@ export default function Home() {
 
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
             {/* LEFT */}
 
@@ -421,7 +419,7 @@ export default function Home() {
 
             {/* FORM */}
 
-            <div className="bg-gray-900 p-10 rounded-3xl shadow-xl border border-orange-500">
+            <div className="bg-gray-900 p-6 md:p-10 rounded-3xl shadow-xl border border-orange-500">
 
               <div className="space-y-5">
 
@@ -468,9 +466,9 @@ export default function Home() {
 
       {/* FOOTER */}
 
-      <footer className="bg-black border-t border-orange-500 text-white py-10">
+      <footer className="bg-black border-t border-orange-500 text-white py-8">
 
-        <div className="text-center text-gray-400">
+        <div className="text-center text-gray-400 text-sm md:text-base px-4">
 
           © 2026 MyPersonal Trainer. All rights reserved.
 
