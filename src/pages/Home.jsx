@@ -1,140 +1,141 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export default function Home() {
+
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
 
     <div className="bg-black min-h-screen text-white overflow-x-hidden">
 
       {/* ========================= */}
-{/* NAVBAR */}
-{/* ========================= */}
-
-<nav className="bg-black border-b border-orange-500 px-4 md:px-10 py-4 sticky top-0 z-50">
-
-  <div className="flex justify-between items-center">
-
-    {/* LOGO */}
-
-    <div className="flex items-center gap-3">
-
-      <div className="w-10 h-10 md:w-12 md:h-12 bg-orange-500 rounded-xl flex items-center justify-center text-white text-xl md:text-2xl font-bold">
-        M
-      </div>
-
-      <div>
-
-        <h1 className="text-xl md:text-3xl font-bold text-orange-500">
-          MyPersonal Trainer
-        </h1>
-
-        <p className="text-gray-400 text-xs md:text-sm">
-          Smart Fitness Management
-        </p>
-
-      </div>
-
-    </div>
-
-
-    {/* DESKTOP MENU */}
-
-    <div className="hidden md:flex items-center gap-8 text-lg font-medium">
-
-      <a href="#home" className="hover:text-orange-500 transition">
-        Home
-      </a>
-
-      <a href="#features" className="hover:text-orange-500 transition">
-        Features
-      </a>
-
-      <a href="#about" className="hover:text-orange-500 transition">
-        About
-      </a>
-
-      <a href="#contact" className="hover:text-orange-500 transition">
-        Contact
-      </a>
-
-      <Link
-        to="/login"
-        className="bg-orange-500 text-white px-6 py-3 rounded-xl hover:bg-orange-600 transition"
-      >
-        Login
-      </Link>
-
-    </div>
-
-
-    {/* MOBILE MENU BUTTON */}
-
-    <button
-      className="md:hidden text-3xl text-orange-500"
-      onClick={() => setMenuOpen(!menuOpen)}
-    >
-      ☰
-    </button>
-
-  </div>
-
-
-  {/* MOBILE MENU */}
-
-  {menuOpen && (
-
-    <div className="md:hidden flex flex-col gap-5 mt-6 bg-gray-900 p-6 rounded-2xl border border-orange-500 text-lg">
-
-      <a
-        href="#home"
-        onClick={() => setMenuOpen(false)}
-        className="hover:text-orange-500"
-      >
-        Home
-      </a>
-
-      <a
-        href="#features"
-        onClick={() => setMenuOpen(false)}
-        className="hover:text-orange-500"
-      >
-        Features
-      </a>
-
-      <a
-        href="#about"
-        onClick={() => setMenuOpen(false)}
-        className="hover:text-orange-500"
-      >
-        About
-      </a>
-
-      <a
-        href="#contact"
-        onClick={() => setMenuOpen(false)}
-        className="hover:text-orange-500"
-      >
-        Contact
-      </a>
-
-      <Link
-        to="/login"
-        onClick={() => setMenuOpen(false)}
-        className="bg-orange-500 text-white px-6 py-3 rounded-xl text-center hover:bg-orange-600 transition"
-      >
-        Login
-      </Link>
-
-    </div>
-
-  )}
-
-</nav>
-
-
+      {/* NAVBAR */}
       {/* ========================= */}
+
+      <nav className="bg-black border-b border-orange-500 px-4 md:px-10 py-4 sticky top-0 z-50">
+
+        <div className="flex justify-between items-center">
+
+          {/* LOGO */}
+
+          <div className="flex items-center gap-3">
+
+            <div className="w-10 h-10 md:w-12 md:h-12 bg-orange-500 rounded-xl flex items-center justify-center text-white text-xl md:text-2xl font-bold">
+              M
+            </div>
+
+            <div>
+
+              <h1 className="text-xl md:text-3xl font-bold text-orange-500">
+                MyPersonal Trainer
+              </h1>
+
+              <p className="text-gray-400 text-xs md:text-sm">
+                Smart Fitness Management
+              </p>
+
+            </div>
+
+          </div>
+
+
+          {/* DESKTOP MENU */}
+
+          <div className="hidden md:flex items-center gap-8 text-lg font-medium">
+
+            <a href="#home" className="hover:text-orange-500 transition">
+              Home
+            </a>
+
+            <a href="#features" className="hover:text-orange-500 transition">
+              Features
+            </a>
+
+            <a href="#about" className="hover:text-orange-500 transition">
+              About
+            </a>
+
+            <a href="#contact" className="hover:text-orange-500 transition">
+              Contact
+            </a>
+
+            <Link
+              to="/login"
+              className="bg-orange-500 text-white px-6 py-3 rounded-xl hover:bg-orange-600 transition"
+            >
+              Login
+            </Link>
+
+          </div>
+
+
+          {/* MOBILE MENU BUTTON */}
+
+          <button
+            className="md:hidden text-3xl text-orange-500"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            ☰
+          </button>
+
+        </div>
+
+
+        {/* MOBILE MENU */}
+
+        {menuOpen && (
+
+          <div className="md:hidden flex flex-col gap-5 mt-6 bg-gray-900 p-6 rounded-2xl border border-orange-500 text-lg">
+
+            <a
+              href="#home"
+              onClick={() => setMenuOpen(false)}
+              className="hover:text-orange-500"
+            >
+              Home
+            </a>
+
+            <a
+              href="#features"
+              onClick={() => setMenuOpen(false)}
+              className="hover:text-orange-500"
+            >
+              Features
+            </a>
+
+            <a
+              href="#about"
+              onClick={() => setMenuOpen(false)}
+              className="hover:text-orange-500"
+            >
+              About
+            </a>
+
+            <a
+              href="#contact"
+              onClick={() => setMenuOpen(false)}
+              className="hover:text-orange-500"
+            >
+              Contact
+            </a>
+
+            <Link
+              to="/login"
+              onClick={() => setMenuOpen(false)}
+              className="bg-orange-500 text-white px-6 py-3 rounded-xl text-center hover:bg-orange-600 transition"
+            >
+              Login
+            </Link>
+
+          </div>
+
+        )}
+
+      </nav>
+
+
       {/* HERO SECTION */}
-      {/* ========================= */}
 
       <section
         id="home"
@@ -257,9 +258,7 @@ export default function Home() {
       </section>
 
 
-      {/* ========================= */}
       {/* FEATURES */}
-      {/* ========================= */}
 
       <section
         id="features"
@@ -357,13 +356,6 @@ export default function Home() {
 
             </p>
 
-            <p className="text-lg md:text-xl text-gray-400 leading-relaxed">
-
-              Built using modern scalable technologies
-              with enterprise-level security.
-
-            </p>
-
           </div>
 
           <div className="bg-black rounded-3xl p-6 md:p-10 shadow-xl border border-orange-500">
@@ -421,67 +413,35 @@ export default function Home() {
               Contact Us
             </h2>
 
-            <p className="text-gray-400 text-lg">
-              Have questions? Send us your enquiry
-            </p>
-
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
-            {/* LEFT */}
+            <div className="space-y-5">
 
-            <div>
+              <div className="bg-gray-900 p-5 rounded-2xl border border-gray-800">
 
-              <h3 className="text-3xl font-bold text-orange-500 mb-6">
-                Let's Talk
-              </h3>
+                <h4 className="font-bold text-xl mb-2 text-orange-500">
+                  Address
+                </h4>
 
-              <p className="text-gray-400 text-lg mb-8 leading-8">
-                Contact our team for trainer management,
-                attendance systems, fitness automation,
-                AI analytics and custom solutions.
-              </p>
+                <p className="text-gray-400">
+                  761 ANG MO KIO AVE 2,<br />
+                  HORIZON GREEN,<br />
+                  SINGAPORE, 567792
+                </p>
 
-              <div className="space-y-5">
+              </div>
 
-                <div className="bg-gray-900 p-5 rounded-2xl shadow border border-gray-800">
+              <div className="bg-gray-900 p-5 rounded-2xl border border-gray-800">
 
-                  <h4 className="font-bold text-xl mb-2 text-orange-500">
-                    Address
-                  </h4>
+                <h4 className="font-bold text-xl mb-2 text-orange-500">
+                  Phone
+                </h4>
 
-                  <p className="text-gray-400">
-                    761 ANG MO KIO AVE 2,<br />
-                    HORIZON GREEN,<br />
-                    SINGAPORE, 567792
-                  </p>
-
-                </div>
-
-                <div className="bg-gray-900 p-5 rounded-2xl shadow border border-gray-800">
-
-                  <h4 className="font-bold text-xl mb-2 text-orange-500">
-                    Email
-                  </h4>
-
-                  <p className="text-gray-400">
-                    support@mypersonal-trainer.com
-                  </p>
-
-                </div>
-
-                <div className="bg-gray-900 p-5 rounded-2xl shadow border border-gray-800">
-
-                  <h4 className="font-bold text-xl mb-2 text-orange-500">
-                    Phone
-                  </h4>
-
-                  <p className="text-gray-400">
-                    +65 97916144
-                  </p>
-
-                </div>
+                <p className="text-gray-400">
+                  +65 97916144
+                </p>
 
               </div>
 
@@ -497,25 +457,19 @@ export default function Home() {
                 <input
                   type="text"
                   placeholder="Full Name"
-                  className="w-full p-4 rounded-xl bg-black border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="w-full p-4 rounded-xl bg-black border border-gray-700 text-white"
                 />
 
                 <input
                   type="email"
                   placeholder="Email Address"
-                  className="w-full p-4 rounded-xl bg-black border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
-                />
-
-                <input
-                  type="text"
-                  placeholder="Phone Number"
-                  className="w-full p-4 rounded-xl bg-black border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="w-full p-4 rounded-xl bg-black border border-gray-700 text-white"
                 />
 
                 <textarea
                   rows="5"
                   placeholder="Enter Your Enquiry"
-                  className="w-full p-4 rounded-xl bg-black border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="w-full p-4 rounded-xl bg-black border border-gray-700 text-white"
                 ></textarea>
 
                 <button
