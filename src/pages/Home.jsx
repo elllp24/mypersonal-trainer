@@ -9,15 +9,11 @@ export default function Home() {
 
     <div className="bg-black min-h-screen text-white overflow-x-hidden">
 
-      {/* ========================= */}
       {/* NAVBAR */}
-      {/* ========================= */}
 
       <nav className="bg-black border-b border-orange-500 px-4 md:px-10 py-4 sticky top-0 z-50">
 
         <div className="flex justify-between items-center">
-
-          {/* LOGO */}
 
           <div className="flex items-center gap-3">
 
@@ -88,42 +84,26 @@ export default function Home() {
 
           <div className="md:hidden flex flex-col gap-5 mt-6 bg-gray-900 p-6 rounded-2xl border border-orange-500 text-lg">
 
-            <a
-              href="#home"
-              onClick={() => setMenuOpen(false)}
-              className="hover:text-orange-500"
-            >
+            <a href="#home" onClick={() => setMenuOpen(false)}>
               Home
             </a>
 
-            <a
-              href="#features"
-              onClick={() => setMenuOpen(false)}
-              className="hover:text-orange-500"
-            >
+            <a href="#features" onClick={() => setMenuOpen(false)}>
               Features
             </a>
 
-            <a
-              href="#about"
-              onClick={() => setMenuOpen(false)}
-              className="hover:text-orange-500"
-            >
+            <a href="#about" onClick={() => setMenuOpen(false)}>
               About
             </a>
 
-            <a
-              href="#contact"
-              onClick={() => setMenuOpen(false)}
-              className="hover:text-orange-500"
-            >
+            <a href="#contact" onClick={() => setMenuOpen(false)}>
               Contact
             </a>
 
             <Link
               to="/login"
               onClick={() => setMenuOpen(false)}
-              className="bg-orange-500 text-white px-6 py-3 rounded-xl text-center hover:bg-orange-600 transition"
+              className="bg-orange-500 text-white px-6 py-3 rounded-xl text-center"
             >
               Login
             </Link>
@@ -135,7 +115,7 @@ export default function Home() {
       </nav>
 
 
-      {/* HERO SECTION */}
+      {/* HERO */}
 
       <section
         id="home"
@@ -144,11 +124,9 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
-          {/* LEFT */}
-
           <div>
 
-            <h1 className="text-4xl md:text-7xl font-extrabold leading-tight mb-6 md:mb-8">
+            <h1 className="text-4xl md:text-7xl font-extrabold leading-tight mb-8">
 
               Transform Your
               <br />
@@ -162,12 +140,11 @@ export default function Home() {
 
             </h1>
 
-            <p className="text-lg md:text-2xl text-gray-300 leading-relaxed mb-8 md:mb-10">
+            <p className="text-lg md:text-2xl text-gray-300 leading-relaxed mb-10">
 
               Powerful AI-based training management system
-              to manage trainers, members, classes,
-              attendance, analytics, and performance —
-              all in one dashboard.
+              for trainers, attendance, classes,
+              analytics and memberships.
 
             </p>
 
@@ -175,13 +152,13 @@ export default function Home() {
 
               <Link
                 to="/login"
-                className="bg-orange-500 text-white px-8 py-4 rounded-2xl text-center text-lg md:text-xl font-bold hover:bg-orange-600 transition"
+                className="bg-orange-500 text-white px-8 py-4 rounded-2xl text-center text-lg font-bold hover:bg-orange-600 transition"
               >
                 Get Started
               </Link>
 
               <button
-                className="border border-orange-500 px-8 py-4 rounded-2xl text-lg md:text-xl hover:bg-orange-500 transition"
+                className="border border-orange-500 px-8 py-4 rounded-2xl text-lg hover:bg-orange-500 transition"
               >
                 Watch Demo
               </button>
@@ -191,63 +168,47 @@ export default function Home() {
           </div>
 
 
-          {/* RIGHT */}
+          {/* STATS */}
 
-          <div className="relative">
+          <div>
 
-            <div className="bg-gray-900 rounded-3xl p-4 md:p-8 shadow-2xl border border-orange-500">
+            <div className="grid grid-cols-2 gap-5">
 
-              <div className="grid grid-cols-2 gap-4 md:gap-5">
+              {[
+                {
+                  title: "Members",
+                  value: "1240"
+                },
+                {
+                  title: "Trainers",
+                  value: "48"
+                },
+                {
+                  title: "Attendance",
+                  value: "94%"
+                },
+                {
+                  title: "Revenue",
+                  value: "₹4.8L"
+                }
+              ].map((item, index) => (
 
-                <div className="bg-black rounded-2xl p-4 md:p-6">
+                <div
+                  key={index}
+                  className="bg-gray-900 p-6 rounded-3xl border border-orange-500"
+                >
 
-                  <h2 className="text-sm md:text-lg font-semibold mb-2 md:mb-3 text-gray-300">
-                    Total Members
+                  <h2 className="text-gray-400 mb-3">
+                    {item.title}
                   </h2>
 
-                  <h1 className="text-3xl md:text-5xl font-bold text-orange-500">
-                    1,240
+                  <h1 className="text-4xl font-bold text-orange-500">
+                    {item.value}
                   </h1>
 
                 </div>
 
-                <div className="bg-black rounded-2xl p-4 md:p-6">
-
-                  <h2 className="text-sm md:text-lg font-semibold mb-2 md:mb-3 text-gray-300">
-                    Trainers
-                  </h2>
-
-                  <h1 className="text-3xl md:text-5xl font-bold text-orange-500">
-                    48
-                  </h1>
-
-                </div>
-
-                <div className="bg-black rounded-2xl p-4 md:p-6">
-
-                  <h2 className="text-sm md:text-lg font-semibold mb-2 md:mb-3 text-gray-300">
-                    Attendance
-                  </h2>
-
-                  <h1 className="text-3xl md:text-5xl font-bold text-orange-500">
-                    94%
-                  </h1>
-
-                </div>
-
-                <div className="bg-black rounded-2xl p-4 md:p-6">
-
-                  <h2 className="text-sm md:text-lg font-semibold mb-2 md:mb-3 text-gray-300">
-                    Revenue
-                  </h2>
-
-                  <h1 className="text-3xl md:text-5xl font-bold text-orange-500">
-                    ₹4.8L
-                  </h1>
-
-                </div>
-
-              </div>
+              ))}
 
             </div>
 
@@ -267,58 +228,34 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto">
 
-          <div className="text-center mb-16">
+          <h1 className="text-3xl md:text-5xl font-bold text-center text-orange-500 mb-16">
+            Powerful Features
+          </h1>
 
-            <h1 className="text-3xl md:text-5xl font-bold mb-5 text-orange-500">
-              Powerful Features
-            </h1>
-
-            <p className="text-lg md:text-xl text-gray-400">
-              Everything you need to manage your fitness business
-            </p>
-
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
             {[
-              {
-                icon: "🧑‍🏫",
-                title: "Trainer Management",
-                desc: "Manage trainers, schedules and assignments."
-              },
-              {
-                icon: "📅",
-                title: "Attendance",
-                desc: "Smart attendance tracking system."
-              },
-              {
-                icon: "🏋️",
-                title: "Class Scheduling",
-                desc: "Manage classes and timings easily."
-              },
-              {
-                icon: "🤖",
-                title: "AI Insights",
-                desc: "Smart AI analytics and reports."
-              }
-            ].map((item, index) => (
+              "Trainer Management",
+              "Attendance Tracking",
+              "Class Scheduling",
+              "AI Analytics"
+            ].map((feature, index) => (
 
               <div
                 key={index}
-                className="bg-gray-900 p-6 md:p-10 rounded-3xl shadow-lg hover:shadow-orange-500/30 hover:-translate-y-2 transition border border-gray-800"
+                className="bg-gray-900 p-8 rounded-3xl border border-gray-800 hover:border-orange-500 transition"
               >
 
-                <div className="text-5xl md:text-6xl mb-6">
-                  {item.icon}
+                <div className="text-5xl mb-5">
+                  💪
                 </div>
 
-                <h2 className="text-2xl md:text-3xl font-bold mb-4 text-orange-500">
-                  {item.title}
+                <h2 className="text-2xl font-bold text-orange-500 mb-4">
+                  {feature}
                 </h2>
 
-                <p className="text-gray-400 leading-relaxed">
-                  {item.desc}
+                <p className="text-gray-400">
+                  Professional fitness business management feature.
                 </p>
 
               </div>
@@ -332,64 +269,244 @@ export default function Home() {
       </section>
 
 
-      {/* ABOUT */}
+      {/* TRAINERS */}
 
-      <section
-        id="about"
-        className="py-16 md:py-24 px-4 md:px-10 bg-gray-950"
-      >
+      <section className="py-16 md:py-24 px-4 md:px-10 bg-gray-950">
 
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+        <div className="max-w-7xl mx-auto">
 
-          <div>
+          <h1 className="text-3xl md:text-5xl font-bold text-center text-orange-500 mb-16">
+            Our Trainers
+          </h1>
 
-            <h1 className="text-3xl md:text-5xl font-bold mb-8 text-orange-500">
-              Why Choose Us?
-            </h1>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-            <p className="text-lg md:text-xl text-gray-400 leading-relaxed mb-6">
+            {[
+              "Strength Coach",
+              "Yoga Trainer",
+              "Cardio Specialist"
+            ].map((role, index) => (
 
-              MyPersonal Trainer helps gyms and trainers
-              digitize operations with AI-powered tools
-              for attendance, scheduling, performance
-              tracking and analytics.
+              <div
+                key={index}
+                className="bg-black border border-gray-800 rounded-3xl p-8 text-center hover:border-orange-500 transition"
+              >
 
-            </p>
+                <div className="w-28 h-28 mx-auto rounded-full bg-orange-500 mb-6"></div>
+
+                <h2 className="text-2xl font-bold text-orange-500">
+                  Trainer {index + 1}
+                </h2>
+
+                <p className="text-gray-400 mt-2">
+                  {role}
+                </p>
+
+              </div>
+
+            ))}
 
           </div>
 
-          <div className="bg-black rounded-3xl p-6 md:p-10 shadow-xl border border-orange-500">
+        </div>
 
-            <div className="space-y-8">
+      </section>
 
-              {[
-                "Enterprise-grade secure platform",
-                "Fast and optimized performance",
-                "Smart AI-driven analytics"
-              ].map((text, index) => (
 
-                <div
-                  key={index}
-                  className="flex gap-5 items-start"
-                >
+      {/* PRICING */}
 
-                  <div className="text-3xl md:text-4xl text-orange-500">
-                    ✔
-                  </div>
+      <section className="py-16 md:py-24 px-4 md:px-10 bg-black">
 
-                  <div>
+        <div className="max-w-7xl mx-auto">
 
-                    <h2 className="text-xl md:text-2xl font-bold mb-2 text-white">
-                      {text}
-                    </h2>
+          <h1 className="text-3xl md:text-5xl font-bold text-center text-orange-500 mb-16">
+            Pricing Plans
+          </h1>
 
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-                </div>
+            {[
+              {
+                title: "Basic",
+                price: "$29"
+              },
+              {
+                title: "Standard",
+                price: "$59"
+              },
+              {
+                title: "Premium",
+                price: "$99"
+              }
+            ].map((plan, index) => (
 
-              ))}
+              <div
+                key={index}
+                className="bg-gray-900 rounded-3xl p-10 border border-gray-800 hover:border-orange-500 transition text-center"
+              >
 
-            </div>
+                <h2 className="text-3xl font-bold text-orange-500 mb-4">
+                  {plan.title}
+                </h2>
+
+                <h1 className="text-5xl font-bold mb-6">
+                  {plan.price}
+                </h1>
+
+                <button className="bg-orange-500 hover:bg-orange-600 px-8 py-3 rounded-xl font-bold">
+                  Choose Plan
+                </button>
+
+              </div>
+
+            ))}
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      {/* BMI */}
+
+      <section className="py-16 md:py-24 px-4 md:px-10 bg-gray-950">
+
+        <div className="max-w-4xl mx-auto bg-black p-10 rounded-3xl border border-orange-500">
+
+          <h1 className="text-3xl md:text-5xl font-bold text-center text-orange-500 mb-10">
+            BMI Calculator
+          </h1>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <input
+              type="number"
+              placeholder="Weight (kg)"
+              className="p-4 rounded-xl bg-gray-900 border border-gray-700"
+            />
+
+            <input
+              type="number"
+              placeholder="Height (cm)"
+              className="p-4 rounded-xl bg-gray-900 border border-gray-700"
+            />
+
+          </div>
+
+          <button className="w-full mt-6 bg-orange-500 hover:bg-orange-600 py-4 rounded-xl font-bold text-lg">
+            Calculate BMI
+          </button>
+
+        </div>
+
+      </section>
+
+
+      {/* TESTIMONIALS */}
+
+      <section className="py-16 md:py-24 px-4 md:px-10 bg-black">
+
+        <div className="max-w-7xl mx-auto">
+
+          <h1 className="text-3xl md:text-5xl font-bold text-center text-orange-500 mb-16">
+            Testimonials
+          </h1>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            {[
+              "Amazing fitness platform!",
+              "Best trainer management system.",
+              "Professional and easy to use."
+            ].map((review, index) => (
+
+              <div
+                key={index}
+                className="bg-gray-900 p-8 rounded-3xl border border-gray-800"
+              >
+
+                <p className="text-gray-300 text-lg">
+                  "{review}"
+                </p>
+
+                <h3 className="mt-6 text-orange-500 font-bold">
+                  ★★★★★
+                </h3>
+
+              </div>
+
+            ))}
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      {/* GALLERY */}
+
+      <section className="py-16 md:py-24 px-4 md:px-10 bg-gray-950">
+
+        <div className="max-w-7xl mx-auto">
+
+          <h1 className="text-3xl md:text-5xl font-bold text-center text-orange-500 mb-16">
+            Gallery
+          </h1>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+            {[1,2,3,4,5,6,7,8].map((item) => (
+
+              <div
+                key={item}
+                className="h-52 bg-gray-800 rounded-3xl border border-gray-700 hover:border-orange-500 transition"
+              ></div>
+
+            ))}
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      {/* FAQ */}
+
+      <section className="py-16 md:py-24 px-4 md:px-10 bg-black">
+
+        <div className="max-w-4xl mx-auto">
+
+          <h1 className="text-3xl md:text-5xl font-bold text-center text-orange-500 mb-16">
+            FAQs
+          </h1>
+
+          <div className="space-y-6">
+
+            {[
+              "How to join membership?",
+              "Can I manage trainers?",
+              "Does it support attendance?"
+            ].map((faq, index) => (
+
+              <div
+                key={index}
+                className="bg-gray-900 p-6 rounded-2xl border border-gray-800"
+              >
+
+                <h2 className="text-xl font-bold text-orange-500">
+                  {faq}
+                </h2>
+
+                <p className="text-gray-400 mt-3">
+                  Yes, our platform fully supports this feature.
+                </p>
+
+              </div>
+
+            ))}
 
           </div>
 
@@ -402,87 +519,14 @@ export default function Home() {
 
       <section
         id="contact"
-        className="py-16 md:py-20 bg-black"
+        className="py-16 md:py-20 bg-gray-950"
       >
 
         <div className="max-w-7xl mx-auto px-4 md:px-6">
 
-          <div className="text-center mb-12">
-
-            <h2 className="text-3xl md:text-5xl font-bold text-orange-500 mb-4">
-              Contact Us
-            </h2>
-
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-
-            <div className="space-y-5">
-
-              <div className="bg-gray-900 p-5 rounded-2xl border border-gray-800">
-
-                <h4 className="font-bold text-xl mb-2 text-orange-500">
-                  Address
-                </h4>
-
-                <p className="text-gray-400">
-                  761 ANG MO KIO AVE 2,<br />
-                  HORIZON GREEN,<br />
-                  SINGAPORE, 567792
-                </p>
-
-              </div>
-
-              <div className="bg-gray-900 p-5 rounded-2xl border border-gray-800">
-
-                <h4 className="font-bold text-xl mb-2 text-orange-500">
-                  Phone
-                </h4>
-
-                <p className="text-gray-400">
-                  +65 97916144
-                </p>
-
-              </div>
-
-            </div>
-
-
-            {/* FORM */}
-
-            <div className="bg-gray-900 p-6 md:p-10 rounded-3xl shadow-xl border border-orange-500">
-
-              <div className="space-y-5">
-
-                <input
-                  type="text"
-                  placeholder="Full Name"
-                  className="w-full p-4 rounded-xl bg-black border border-gray-700 text-white"
-                />
-
-                <input
-                  type="email"
-                  placeholder="Email Address"
-                  className="w-full p-4 rounded-xl bg-black border border-gray-700 text-white"
-                />
-
-                <textarea
-                  rows="5"
-                  placeholder="Enter Your Enquiry"
-                  className="w-full p-4 rounded-xl bg-black border border-gray-700 text-white"
-                ></textarea>
-
-                <button
-                  className="w-full bg-orange-500 hover:bg-orange-600 text-white py-4 rounded-xl text-lg font-semibold transition"
-                >
-                  Send Enquiry
-                </button>
-
-              </div>
-
-            </div>
-
-          </div>
+          <h2 className="text-3xl md:text-5xl font-bold text-center text-orange-500 mb-12">
+            Contact Us
+          </h2>
 
         </div>
 
@@ -491,37 +535,46 @@ export default function Home() {
 
       {/* FOOTER */}
 
-<footer className="bg-black border-t border-orange-500 text-white py-8">
+      <footer className="bg-black border-t border-orange-500 text-white py-8">
 
-  <div className="text-center text-gray-400 text-sm md:text-base px-4">
+        <div className="text-center text-gray-400 text-sm md:text-base px-4">
 
-    © 2026 MyPersonal Trainer. All rights reserved.
+          © 2026 MyPersonal Trainer. All rights reserved.
 
-  </div>
+        </div>
 
-</footer>
+      </footer>
 
 
-{/* WHATSAPP FLOATING BUTTON */}
+      {/* AI CHATBOT */}
 
-<a
-  href="https://wa.me/6597916144"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl z-50 transition transform hover:scale-110"
->
+      <button
+        className="fixed bottom-28 right-6 bg-orange-500 hover:bg-orange-600 w-16 h-16 rounded-full shadow-2xl z-50 text-3xl"
+      >
+        🤖
+      </button>
 
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 32 32"
-    fill="currentColor"
-    className="w-9 h-9"
-  >
-    <path d="M16.001 3C8.821 3 3 8.822 3 16.002c0 2.292.6 4.53 1.742 6.502L3 29l6.673-1.704A12.94 12.94 0 0 0 16 29c7.18 0 13.001-5.822 13.001-12.998C29.001 8.822 23.18 3 16.001 3z"/>
-  </svg>
 
-</a>
+      {/* WHATSAPP BUTTON */}
 
-</div>
+      <a
+        href="https://wa.me/6597916144"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl z-50 transition transform hover:scale-110"
+      >
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 32 32"
+          fill="currentColor"
+          className="w-9 h-9"
+        >
+          <path d="M16.001 3C8.821 3 3 8.822 3 16.002c0 2.292.6 4.53 1.742 6.502L3 29l6.673-1.704A12.94 12.94 0 0 0 16 29c7.18 0 13.001-5.822 13.001-12.998C29.001 8.822 23.18 3 16.001 3z"/>
+        </svg>
+
+      </a>
+
+    </div>
   );
 }
