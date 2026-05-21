@@ -491,16 +491,37 @@ export default function Home() {
 
       {/* FOOTER */}
 
-      <footer className="bg-black border-t border-orange-500 text-white py-8">
+<footer className="bg-black border-t border-orange-500 text-white py-8">
 
-        <div className="text-center text-gray-400 text-sm md:text-base px-4">
+  <div className="text-center text-gray-400 text-sm md:text-base px-4">
 
-          © 2026 MyPersonal Trainer. All rights reserved.
+    © 2026 MyPersonal Trainer. All rights reserved.
 
-        </div>
+  </div>
 
-      </footer>
+</footer>
 
-    </div>
+
+{/* WHATSAPP FLOATING BUTTON */}
+
+<a
+  href="https://wa.me/6597916144"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl z-50 transition transform hover:scale-110"
+>
+
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 32 32"
+    fill="currentColor"
+    className="w-9 h-9"
+  >
+    <path d="M16.001 3C8.821 3 3 8.822 3 16.002c0 2.292.6 4.53 1.742 6.502L3 29l6.673-1.704A12.94 12.94 0 0 0 16 29c7.18 0 13.001-5.822 13.001-12.998C29.001 8.822 23.18 3 16.001 3z"/>
+  </svg>
+
+</a>
+
+</div>
   );
 }
