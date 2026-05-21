@@ -5,6 +5,17 @@ export default function Home() {
 
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const [chatOpen, setChatOpen] = useState(false);
+
+  const [messages, setMessages] = useState([
+    {
+      sender: "bot",
+      text: "Hello 👋 Welcome to MyPersonal Trainer. How can I help you?"
+    }
+  ]);
+
+  const [input, setInput] = useState("");
+
   return (
 
     <div className="bg-black min-h-screen text-white overflow-x-hidden">
@@ -14,6 +25,8 @@ export default function Home() {
       <nav className="bg-black border-b border-orange-500 px-4 md:px-10 py-4 sticky top-0 z-50">
 
         <div className="flex justify-between items-center">
+
+          {/* LOGO */}
 
           <div className="flex items-center gap-3">
 
@@ -46,10 +59,6 @@ export default function Home() {
 
             <a href="#features" className="hover:text-orange-500 transition">
               Features
-            </a>
-
-            <a href="#about" className="hover:text-orange-500 transition">
-              About
             </a>
 
             <a href="#contact" className="hover:text-orange-500 transition">
@@ -90,10 +99,6 @@ export default function Home() {
 
             <a href="#features" onClick={() => setMenuOpen(false)}>
               Features
-            </a>
-
-            <a href="#about" onClick={() => setMenuOpen(false)}>
-              About
             </a>
 
             <a href="#contact" onClick={() => setMenuOpen(false)}>
@@ -304,6 +309,8 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
 
+            {/* FORM */}
+
             <div className="bg-black p-8 rounded-3xl border border-gray-800">
 
               <h3 className="text-2xl font-bold text-orange-500 mb-6">
@@ -338,6 +345,8 @@ export default function Home() {
 
             </div>
 
+
+            {/* CONTACT INFO */}
 
             <div className="space-y-6">
 
@@ -389,9 +398,126 @@ export default function Home() {
       </footer>
 
 
-      {/* AI CHATBOT */}
+      {/* CHATBOT WINDOW */}
+
+      {chatOpen && (
+
+        <div className="fixed bottom-28 right-6 w-80 md:w-96 bg-gray-900 border border-orange-500 rounded-3xl shadow-2xl z-50 overflow-hidden">
+
+          {/* HEADER */}
+
+          <div className="bg-orange-500 text-white px-5 py-4 flex justify-between items-center">
+
+            <h2 className="font-bold text-lg">
+              AI Fitness Assistant
+            </h2>
+
+            <button
+              onClick={() => setChatOpen(false)}
+              className="text-2xl"
+            >
+              ×
+            </button>
+
+          </div>
+
+
+          {/* MESSAGES */}
+
+          <div className="h-80 overflow-y-auto p-4 space-y-4 bg-black">
+
+            {messages.map((msg, index) => (
+
+              <div
+                key={index}
+                className={`p-3 rounded-2xl max-w-[80%] ${
+                  msg.sender === "bot"
+                    ? "bg-gray-800 text-white"
+                    : "bg-orange-500 text-white ml-auto"
+                }`}
+              >
+
+                {msg.text}
+
+              </div>
+
+            ))}
+
+          </div>
+
+
+          {/* INPUT */}
+
+          <div className="p-4 bg-gray-900 flex gap-3">
+
+            <input
+              type="text"
+              placeholder="Ask something..."
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              className="flex-1 p-3 rounded-xl bg-black border border-gray-700 text-white"
+            />
+
+            <button
+              onClick={() => {
+
+                if (!input.trim()) return;
+
+                const userMessage = {
+                  sender: "user",
+                  text: input
+                };
+
+                let botReply = "Please contact our support team.";
+
+                if (input.toLowerCase().includes("price")) {
+                  botReply = "Our plans start from $29/month.";
+                }
+
+                else if (input.toLowerCase().includes("timing")) {
+                  botReply = "Gym timings are from 6AM to 10PM.";
+                }
+
+                else if (input.toLowerCase().includes("contact")) {
+                  botReply = "You can contact us at +65 97916144.";
+                }
+
+                else if (input.toLowerCase().includes("membership")) {
+                  botReply = "We provide Basic, Standard and Premium plans.";
+                }
+
+                else if (input.toLowerCase().includes("trainer")) {
+                  botReply = "We have professional certified trainers.";
+                }
+
+                setMessages((prev) => [
+                  ...prev,
+                  userMessage,
+                  {
+                    sender: "bot",
+                    text: botReply
+                  }
+                ]);
+
+                setInput("");
+
+              }}
+              className="bg-orange-500 hover:bg-orange-600 px-5 rounded-xl font-bold"
+            >
+              Send
+            </button>
+
+          </div>
+
+        </div>
+
+      )}
+
+
+      {/* AI CHATBOT BUTTON */}
 
       <button
+        onClick={() => setChatOpen(!chatOpen)}
         className="fixed bottom-28 right-6 bg-orange-500 hover:bg-orange-600 w-16 h-16 rounded-full shadow-2xl z-50 text-3xl"
       >
         🤖
