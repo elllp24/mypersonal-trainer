@@ -5,24 +5,13 @@ export default function Home() {
 
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const [chatOpen, setChatOpen] = useState(false);
-
-  const [messages, setMessages] = useState([
-    {
-      sender: "bot",
-      text: "Hello 👋 Welcome to MyPersonal Trainer. How can I help you?"
-    }
-  ]);
-
-  const [input, setInput] = useState("");
-
   return (
 
     <div className="bg-black min-h-screen text-white overflow-x-hidden pt-24">
 
       {/* NAVBAR */}
 
-      <nav className="fixed top-0 left-0 w-full bg-black/90 backdrop-blur-md border-b border-orange-500 px-4 md:px-10 py-4 z-50">
+      <nav className="fixed top-0 left-0 w-full bg-black/95 backdrop-blur-md border-b border-orange-500 px-4 md:px-10 py-4 z-50">
 
         <div className="flex justify-between items-center">
 
@@ -152,11 +141,12 @@ export default function Home() {
       </nav>
 
 
+
       {/* HERO */}
 
       <section
         id="home"
-        className="bg-gradient-to-r from-black via-gray-900 to-black py-16 md:py-32 px-4 md:px-10"
+        className="bg-gradient-to-r from-black via-gray-900 to-black py-20 md:py-32 px-4 md:px-10"
       >
 
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -203,6 +193,7 @@ export default function Home() {
             </div>
 
           </div>
+
 
 
           {/* STATS */}
@@ -256,6 +247,7 @@ export default function Home() {
       </section>
 
 
+
       {/* FEATURES */}
 
       <section
@@ -275,32 +267,32 @@ export default function Home() {
               {
                 icon: "🧑‍🏫",
                 title: "Trainer Management",
-                desc: "Manage trainers, schedules and assignments professionally."
+                desc: "Manage trainers professionally."
               },
 
               {
                 icon: "📅",
                 title: "Attendance Tracking",
-                desc: "Track member attendance and performance in real-time."
+                desc: "Track attendance in real-time."
               },
 
               {
                 icon: "🏋️",
                 title: "Class Scheduling",
-                desc: "Create and manage gym classes and timings easily."
+                desc: "Manage classes and schedules."
               },
 
               {
                 icon: "🤖",
                 title: "AI Analytics",
-                desc: "Smart AI-powered reports and business insights."
+                desc: "Smart AI-powered insights."
               }
 
             ].map((feature, index) => (
 
               <div
                 key={index}
-                className="bg-gradient-to-b from-gray-900 to-gray-950 p-8 rounded-3xl border border-gray-800 hover:border-orange-500 hover:-translate-y-3 hover:shadow-orange-500/20 hover:shadow-2xl transition duration-300"
+                className="bg-gradient-to-b from-gray-900 to-gray-950 p-8 rounded-3xl border border-gray-800 hover:border-orange-500 hover:-translate-y-3 transition"
               >
 
                 <div className="text-6xl mb-6">
@@ -326,6 +318,7 @@ export default function Home() {
       </section>
 
 
+
       {/* ABOUT */}
 
       <section
@@ -333,106 +326,24 @@ export default function Home() {
         className="py-16 md:py-24 px-4 md:px-10 bg-gray-950"
       >
 
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="max-w-7xl mx-auto">
 
-          <div>
+          <h1 className="text-3xl md:text-5xl font-bold text-center text-orange-500 mb-10">
+            About Us
+          </h1>
 
-            <h1 className="text-3xl md:text-5xl font-bold text-orange-500 mb-8">
-              About Us
-            </h1>
+          <p className="text-gray-400 text-lg md:text-xl leading-relaxed text-center max-w-4xl mx-auto">
 
-            <p className="text-lg text-gray-400 leading-relaxed mb-6">
+            MyPersonal Trainer is an AI-powered fitness
+            management platform designed for gyms,
+            personal trainers and fitness businesses.
 
-              MyPersonal Trainer is a modern AI-powered
-              fitness management platform designed for
-              gyms, personal trainers and fitness businesses.
-
-            </p>
-
-            <p className="text-lg text-gray-400 leading-relaxed">
-
-              Manage trainers, attendance, memberships,
-              schedules, analytics and customer engagement
-              from one smart dashboard.
-
-            </p>
-
-          </div>
-
-
-          <div className="bg-black border border-orange-500 rounded-3xl p-10">
-
-            <div className="space-y-8">
-
-              <div className="flex items-center gap-5">
-
-                <div className="text-5xl">
-                  ✅
-                </div>
-
-                <div>
-
-                  <h2 className="text-2xl font-bold text-orange-500">
-                    Smart Automation
-                  </h2>
-
-                  <p className="text-gray-400 mt-2">
-                    Automate attendance, schedules and memberships.
-                  </p>
-
-                </div>
-
-              </div>
-
-
-              <div className="flex items-center gap-5">
-
-                <div className="text-5xl">
-                  📊
-                </div>
-
-                <div>
-
-                  <h2 className="text-2xl font-bold text-orange-500">
-                    AI Analytics
-                  </h2>
-
-                  <p className="text-gray-400 mt-2">
-                    Get powerful AI-based business insights.
-                  </p>
-
-                </div>
-
-              </div>
-
-
-              <div className="flex items-center gap-5">
-
-                <div className="text-5xl">
-                  🔒
-                </div>
-
-                <div>
-
-                  <h2 className="text-2xl font-bold text-orange-500">
-                    Secure Platform
-                  </h2>
-
-                  <p className="text-gray-400 mt-2">
-                    Enterprise-grade security and performance.
-                  </p>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
+          </p>
 
         </div>
 
       </section>
+
 
 
       {/* TRAINERS */}
@@ -445,7 +356,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
 
           <h1 className="text-3xl md:text-5xl font-bold text-center text-orange-500 mb-16">
-            Our Trainers
+            Trainer Profiles
           </h1>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -467,10 +378,10 @@ export default function Home() {
 
               <div
                 key={index}
-                className="bg-gray-900 border border-gray-800 rounded-3xl p-8 text-center hover:border-orange-500 transition"
+                className="bg-gray-900 rounded-3xl p-8 border border-gray-800 text-center hover:border-orange-500 transition"
               >
 
-                <div className="w-28 h-28 mx-auto rounded-full bg-orange-500 mb-6"></div>
+                <div className="w-28 h-28 rounded-full bg-orange-500 mx-auto mb-6"></div>
 
                 <h2 className="text-2xl font-bold text-orange-500">
                   {trainer.name}
@@ -489,6 +400,7 @@ export default function Home() {
         </div>
 
       </section>
+
 
 
       {/* PRICING */}
@@ -523,7 +435,7 @@ export default function Home() {
 
               <div
                 key={index}
-                className="bg-black rounded-3xl p-10 border border-gray-800 hover:border-orange-500 transition text-center"
+                className="bg-black rounded-3xl p-10 border border-gray-800 hover:border-orange-500 text-center"
               >
 
                 <h2 className="text-3xl font-bold text-orange-500 mb-4">
@@ -534,11 +446,7 @@ export default function Home() {
                   {plan.price}
                 </h1>
 
-                <p className="text-gray-400 mb-8">
-                  Monthly membership plan
-                </p>
-
-                <button className="bg-orange-500 hover:bg-orange-600 px-8 py-3 rounded-xl font-bold">
+                <button className="bg-orange-500 px-8 py-3 rounded-xl font-bold hover:bg-orange-600">
                   Choose Plan
                 </button>
 
@@ -552,153 +460,6 @@ export default function Home() {
 
       </section>
 
-
-      {/* MEMBERSHIP */}
-
-      <section className="py-16 md:py-24 px-4 md:px-10 bg-black">
-
-        <div className="max-w-7xl mx-auto">
-
-          <h1 className="text-3xl md:text-5xl font-bold text-center text-orange-500 mb-16">
-            Membership Benefits
-          </h1>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-
-            {[
-              "Unlimited Gym Access",
-              "Free Fitness Assessment",
-              "Personal Trainer Support",
-              "Diet & Nutrition Guidance"
-            ].map((item, index) => (
-
-              <div
-                key={index}
-                className="bg-gray-900 p-8 rounded-3xl border border-gray-800 text-center hover:border-orange-500 transition"
-              >
-
-                <div className="text-5xl mb-6">
-                  💪
-                </div>
-
-                <h2 className="text-xl font-bold text-orange-500">
-                  {item}
-                </h2>
-
-              </div>
-
-            ))}
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* BMI */}
-
-      <section className="py-16 md:py-24 px-4 md:px-10 bg-gray-950">
-
-        <div className="max-w-4xl mx-auto bg-black p-10 rounded-3xl border border-orange-500">
-
-          <h1 className="text-3xl md:text-5xl font-bold text-center text-orange-500 mb-10">
-            BMI Calculator
-          </h1>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-            <input
-              type="number"
-              placeholder="Weight (kg)"
-              className="p-4 rounded-xl bg-gray-900 border border-gray-700"
-            />
-
-            <input
-              type="number"
-              placeholder="Height (cm)"
-              className="p-4 rounded-xl bg-gray-900 border border-gray-700"
-            />
-
-          </div>
-
-          <button className="w-full mt-6 bg-orange-500 hover:bg-orange-600 py-4 rounded-xl font-bold text-lg">
-            Calculate BMI
-          </button>
-
-        </div>
-
-      </section>
-
-
-      {/* TESTIMONIALS */}
-
-      <section className="py-16 md:py-24 px-4 md:px-10 bg-black">
-
-        <div className="max-w-7xl mx-auto">
-
-          <h1 className="text-3xl md:text-5xl font-bold text-center text-orange-500 mb-16">
-            Testimonials
-          </h1>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-            {[
-              "Amazing fitness platform!",
-              "Best trainer management system.",
-              "Professional and easy to use."
-            ].map((review, index) => (
-
-              <div
-                key={index}
-                className="bg-gray-900 p-8 rounded-3xl border border-gray-800"
-              >
-
-                <p className="text-gray-300 text-lg">
-                  "{review}"
-                </p>
-
-                <h3 className="mt-6 text-orange-500 font-bold">
-                  ★★★★★
-                </h3>
-
-              </div>
-
-            ))}
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* GALLERY */}
-
-      <section className="py-16 md:py-24 px-4 md:px-10 bg-gray-950">
-
-        <div className="max-w-7xl mx-auto">
-
-          <h1 className="text-3xl md:text-5xl font-bold text-center text-orange-500 mb-16">
-            Gallery
-          </h1>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-
-            {[1,2,3,4,5,6,7,8].map((item) => (
-
-              <div
-                key={item}
-                className="h-52 bg-gray-800 rounded-3xl border border-gray-700 hover:border-orange-500 transition"
-              ></div>
-
-            ))}
-
-          </div>
-
-        </div>
-
-      </section>
 
 
       {/* FAQ */}
@@ -746,6 +507,7 @@ export default function Home() {
       </section>
 
 
+
       {/* CONTACT */}
 
       <section
@@ -759,9 +521,118 @@ export default function Home() {
             Contact Us
           </h2>
 
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+            <div className="bg-black p-8 rounded-3xl border border-gray-800">
+
+              <h3 className="text-2xl font-bold text-orange-500 mb-6">
+                Send Enquiry
+              </h3>
+
+              <div className="space-y-5">
+
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  className="w-full p-4 rounded-xl bg-gray-900 border border-gray-700"
+                />
+
+                <input
+                  type="email"
+                  placeholder="Your Email"
+                  className="w-full p-4 rounded-xl bg-gray-900 border border-gray-700"
+                />
+
+                <textarea
+                  rows="5"
+                  placeholder="Your Message"
+                  className="w-full p-4 rounded-xl bg-gray-900 border border-gray-700"
+                ></textarea>
+
+                <button className="w-full bg-orange-500 hover:bg-orange-600 py-4 rounded-xl font-bold">
+                  Send Enquiry
+                </button>
+
+              </div>
+
+            </div>
+
+
+
+            <div className="space-y-6">
+
+              <div className="bg-black p-6 rounded-3xl border border-gray-800">
+
+                <h3 className="text-2xl font-bold text-orange-500 mb-4">
+                  Address
+                </h3>
+
+                <p className="text-gray-400 text-lg leading-relaxed">
+                  761 ANG MO KIO AVE 2,
+                  HORIZON GREEN,
+                  SINGAPORE - 567792
+                </p>
+
+              </div>
+
+
+
+              <div className="bg-black p-6 rounded-3xl border border-gray-800">
+
+                <h3 className="text-2xl font-bold text-orange-500 mb-4">
+                  Contact Number
+                </h3>
+
+                <p className="text-gray-400 text-lg">
+                  +65 97916144
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
 
       </section>
+
+
+
+      {/* FOOTER */}
+
+      <footer className="bg-black border-t border-orange-500 py-8">
+
+        <div className="max-w-7xl mx-auto px-4 text-center">
+
+          <h2 className="text-2xl font-bold text-orange-500 mb-3">
+            MyPersonal Trainer
+          </h2>
+
+          <p className="text-gray-400">
+            Smart AI-Based Fitness Management System
+          </p>
+
+          <p className="text-gray-600 mt-4 text-sm">
+            © 2026 MyPersonal Trainer. All Rights Reserved.
+          </p>
+
+        </div>
+
+      </footer>
+
+
+
+      {/* WHATSAPP BUTTON */}
+
+      <a
+        href="https://wa.me/6597916144"
+        target="_blank"
+        rel="noreferrer"
+        className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl z-50"
+      >
+        💬
+      </a>
 
     </div>
   );
