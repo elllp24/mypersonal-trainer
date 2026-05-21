@@ -216,8 +216,8 @@ export default function Home() {
                   value: "94%"
                 },
                 {
-                  title: "Revenue",
-                  value: "₹4.8L"
+                   title: "Active Classes",
+  value: "120"
                 }
               ].map((item, index) => (
 
