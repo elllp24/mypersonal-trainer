@@ -158,9 +158,7 @@ export default function Home() {
               Transform Your
               <br />
 
-              Fitness Business
-              <br />
-
+              Fitness
               <span className="text-orange-500">
                 Digitally
               </span>
