@@ -62,6 +62,10 @@ export default function Home() {
               Pricing
             </a>
 
+ <a href="#whychoose" className="hover:text-orange-500 transition">
+              Why chose us
+            </a>
+
             <a href="#faq" className="hover:text-orange-500 transition">
               FAQs
             </a>
@@ -116,6 +120,10 @@ export default function Home() {
 
             <a href="#pricing" onClick={() => setMenuOpen(false)}>
               Pricing
+            </a>
+
+<a href="#whychoose" onClick={() => setMenuOpen(false)}>
+              Why Choose Us
             </a>
 
             <a href="#faq" onClick={() => setMenuOpen(false)}>
@@ -455,7 +463,188 @@ export default function Home() {
 
 </section>
 
+{/* WHY CHOOSE US */}
 
+<section
+  id="whychoose"
+  className="py-20 md:py-28 px-4 md:px-10 bg-black"
+>
+
+  <div className="max-w-7xl mx-auto">
+
+    {/* TITLE */}
+
+    <div className="text-center mb-16">
+
+      <h1 className="text-4xl md:text-6xl font-extrabold text-orange-500 mb-6">
+        Why Choose Us
+      </h1>
+
+      <div className="w-32 h-1 bg-orange-500 mx-auto rounded-full mb-8"></div>
+
+      <p className="text-gray-400 text-lg md:text-xl max-w-4xl mx-auto leading-relaxed">
+
+        We provide professional fitness training,
+        smart AI-powered management, and personalized
+        fitness solutions designed to help every member
+        achieve their health and wellness goals.
+
+      </p>
+
+    </div>
+
+
+    {/* FEATURES GRID */}
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      {/* CARD 1 */}
+
+      <div className="bg-gradient-to-b from-gray-900 to-black border border-gray-800 rounded-3xl p-8 hover:border-orange-500 hover:-translate-y-3 transition duration-300 shadow-lg">
+
+        <div className="text-6xl mb-6">
+          🤖
+        </div>
+
+        <h2 className="text-2xl font-bold text-orange-500 mb-4">
+          AI Powered Tracking
+        </h2>
+
+        <p className="text-gray-400 text-lg leading-relaxed">
+
+          Smart AI-based tracking system for attendance,
+          member progress, workout monitoring,
+          and fitness performance analysis.
+
+        </p>
+
+      </div>
+
+
+
+      {/* CARD 2 */}
+
+      <div className="bg-gradient-to-b from-gray-900 to-black border border-gray-800 rounded-3xl p-8 hover:border-orange-500 hover:-translate-y-3 transition duration-300 shadow-lg">
+
+        <div className="text-6xl mb-6">
+          🧑‍🏫
+        </div>
+
+        <h2 className="text-2xl font-bold text-orange-500 mb-4">
+          Certified Trainers
+        </h2>
+
+        <p className="text-gray-400 text-lg leading-relaxed">
+
+          Experienced and certified fitness trainers
+          dedicated to guiding members with professional
+          support and expert fitness coaching.
+
+        </p>
+
+      </div>
+
+
+
+      {/* CARD 3 */}
+
+      <div className="bg-gradient-to-b from-gray-900 to-black border border-gray-800 rounded-3xl p-8 hover:border-orange-500 hover:-translate-y-3 transition duration-300 shadow-lg">
+
+        <div className="text-6xl mb-6">
+          💪
+        </div>
+
+        <h2 className="text-2xl font-bold text-orange-500 mb-4">
+          Personalized Workouts
+        </h2>
+
+        <p className="text-gray-400 text-lg leading-relaxed">
+
+          Customized workout plans created based on
+          individual body goals, fitness levels,
+          and personal training requirements.
+
+        </p>
+
+      </div>
+
+
+
+      {/* CARD 4 */}
+
+      <div className="bg-gradient-to-b from-gray-900 to-black border border-gray-800 rounded-3xl p-8 hover:border-orange-500 hover:-translate-y-3 transition duration-300 shadow-lg">
+
+        <div className="text-6xl mb-6">
+          📅
+        </div>
+
+        <h2 className="text-2xl font-bold text-orange-500 mb-4">
+          Flexible Membership
+        </h2>
+
+        <p className="text-gray-400 text-lg leading-relaxed">
+
+          Flexible membership plans designed for
+          beginners, regular members, and professional
+          fitness enthusiasts.
+
+        </p>
+
+      </div>
+
+
+
+      {/* CARD 5 */}
+
+      <div className="bg-gradient-to-b from-gray-900 to-black border border-gray-800 rounded-3xl p-8 hover:border-orange-500 hover:-translate-y-3 transition duration-300 shadow-lg">
+
+        <div className="text-6xl mb-6">
+          🥗
+        </div>
+
+        <h2 className="text-2xl font-bold text-orange-500 mb-4">
+          Nutrition Guidance
+        </h2>
+
+        <p className="text-gray-400 text-lg leading-relaxed">
+
+          Professional nutrition guidance and healthy
+          diet recommendations to support better
+          fitness results and wellness goals.
+
+        </p>
+
+      </div>
+
+
+
+      {/* CARD 6 */}
+
+      <div className="bg-gradient-to-b from-gray-900 to-black border border-gray-800 rounded-3xl p-8 hover:border-orange-500 hover:-translate-y-3 transition duration-300 shadow-lg">
+
+        <div className="text-6xl mb-6">
+          🏋️
+        </div>
+
+        <h2 className="text-2xl font-bold text-orange-500 mb-4">
+          Modern Equipment
+        </h2>
+
+        <p className="text-gray-400 text-lg leading-relaxed">
+
+          Access to modern fitness equipment,
+          advanced workout facilities, and
+          professional training environments.
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
       {/* TRAINERS */}
 
