@@ -317,30 +317,143 @@ export default function Home() {
 
 
 
-      {/* ABOUT */}
+  {/* ABOUT */}
 
-      <section
-        id="about"
-        className="py-16 md:py-24 px-4 md:px-10 bg-gray-950"
-      >
+<section
+  id="about"
+  className="py-20 md:py-28 px-4 md:px-10 bg-gradient-to-b from-black to-gray-950"
+>
 
-        <div className="max-w-7xl mx-auto">
+  <div className="max-w-7xl mx-auto">
 
-          <h1 className="text-3xl md:text-5xl font-bold text-center text-orange-500 mb-10">
-            About Us
-          </h1>
+    {/* TITLE */}
 
-          <p className="text-gray-400 text-lg md:text-xl leading-relaxed text-center max-w-4xl mx-auto">
+    <div className="text-center mb-16">
 
-            MyPersonal Trainer is an AI-powered fitness
-            management platform designed for gyms,
-            personal trainers and fitness businesses.
+      <h1 className="text-4xl md:text-6xl font-extrabold text-orange-500 mb-6">
+        About Us
+      </h1>
+
+      <div className="w-32 h-1 bg-orange-500 mx-auto rounded-full"></div>
+
+    </div>
+
+
+    {/* CONTENT */}
+
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+
+      {/* LEFT SIDE */}
+
+      <div className="space-y-8">
+
+        <div className="bg-black border border-gray-800 rounded-3xl p-8 hover:border-orange-500 transition duration-300">
+
+          <h2 className="text-2xl md:text-3xl font-bold text-orange-500 mb-5">
+            Smart Fitness Management
+          </h2>
+
+          <p className="text-gray-400 text-lg leading-relaxed">
+
+            MyPersonal Trainer is a next-generation
+            AI-powered fitness management platform
+            designed for gyms, fitness studios,
+            personal trainers, and wellness businesses.
 
           </p>
 
         </div>
 
-      </section>
+
+        <div className="bg-black border border-gray-800 rounded-3xl p-8 hover:border-orange-500 transition duration-300">
+
+          <h2 className="text-2xl md:text-3xl font-bold text-orange-500 mb-5">
+            Personalized Fitness Experience
+          </h2>
+
+          <p className="text-gray-400 text-lg leading-relaxed">
+
+            Every member receives personalized attention
+            and customized fitness programs based on their
+            body goals, fitness level, and lifestyle.
+
+            Our trainers focus on creating effective workout
+            routines, proper guidance, and continuous motivation
+            to help members achieve long-term fitness success.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+      {/* RIGHT SIDE */}
+
+      <div className="space-y-8">
+
+        <div className="bg-black border border-gray-800 rounded-3xl p-8 hover:border-orange-500 transition duration-300">
+
+          <h2 className="text-2xl md:text-3xl font-bold text-orange-500 mb-5">
+            Member-Focused Training
+          </h2>
+
+          <p className="text-gray-400 text-lg leading-relaxed">
+
+            At MyPersonal Trainer, our primary focus is helping
+            members achieve their fitness goals through
+            expert guidance, personalized training programs,
+            and continuous support from certified trainers.
+
+          </p>
+
+        </div>
+
+
+        <div className="bg-black border border-gray-800 rounded-3xl p-8 hover:border-orange-500 transition duration-300">
+
+          <h2 className="text-2xl md:text-3xl font-bold text-orange-500 mb-5">
+            Healthy Lifestyle Journey
+          </h2>
+
+          <p className="text-gray-400 text-lg leading-relaxed">
+
+            Whether your goal is weight loss, muscle building,
+            strength training, flexibility improvement,
+            or overall wellness, our trainers are committed
+            to delivering a safe, effective, and
+            results-driven fitness experience.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    {/* BOTTOM SECTION */}
+
+    <div className="mt-16 bg-black border border-orange-500 rounded-3xl p-8 md:p-12 text-center">
+
+      <h2 className="text-3xl md:text-4xl font-bold text-orange-500 mb-6">
+        Our Mission
+      </h2>
+
+      <p className="text-gray-300 text-lg md:text-xl leading-relaxed max-w-5xl mx-auto">
+
+        We believe fitness is not just about workouts —
+        it is about building confidence, discipline,
+        healthy habits, and a better lifestyle for every member.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
 
 
 
