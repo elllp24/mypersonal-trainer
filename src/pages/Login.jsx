@@ -40,10 +40,7 @@ export default function Login() {
       role === "Admin"
     ) {
 
-      // SAVE ROLE
-
       localStorage.setItem("role", "admin");
-
       localStorage.setItem("email", email);
 
       navigate("/admin-dashboard");
@@ -60,10 +57,7 @@ export default function Login() {
       role === "Trainer"
     ) {
 
-      // SAVE ROLE
-
       localStorage.setItem("role", "trainer");
-
       localStorage.setItem("email", email);
 
       navigate("/trainer-dashboard");
@@ -80,10 +74,7 @@ export default function Login() {
       role === "Member"
     ) {
 
-      // SAVE ROLE
-
       localStorage.setItem("role", "member");
-
       localStorage.setItem("email", email);
 
       navigate("/member-dashboard");
@@ -193,7 +184,7 @@ export default function Login() {
         </button>
 
 
-        {/* HOME */}
+        {/* BACK HOME */}
 
         <div className="text-center mt-6">
 
@@ -222,13 +213,8 @@ export default function Login() {
                 Admin
               </p>
 
-              <p>
-                admin@gmail.com
-              </p>
-
-              <p>
-                admin123
-              </p>
+              <p>admin@gmail.com</p>
+              <p>admin123</p>
             </div>
 
 
@@ -237,13 +223,8 @@ export default function Login() {
                 Trainer
               </p>
 
-              <p>
-                trainer@gmail.com
-              </p>
-
-              <p>
-                trainer123
-              </p>
+              <p>trainer@gmail.com</p>
+              <p>trainer123</p>
             </div>
 
 
@@ -252,13 +233,8 @@ export default function Login() {
                 Member
               </p>
 
-              <p>
-                member@gmail.com
-              </p>
-
-              <p>
-                member123
-              </p>
+              <p>member@gmail.com</p>
+              <p>member123</p>
             </div>
 
           </div>
