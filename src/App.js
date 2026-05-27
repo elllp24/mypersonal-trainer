@@ -14,6 +14,8 @@ import TrainerManagement from "./pages/TrainerManagement";
 
 import MemberManagement from "./pages/MemberManagement";
 
+import AdminPricing from "./pages/AdminPricing";
+
 
 export default function App() {
 
@@ -84,6 +86,11 @@ export default function App() {
           path="/members"
           element={<MemberManagement />}
         />
+
+        <Route
+  path="/admin-pricing"
+  element={<AdminPricing />}
+/>
 
       </Routes>
 
