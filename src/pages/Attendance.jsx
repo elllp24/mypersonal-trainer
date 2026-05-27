@@ -16,9 +16,7 @@ export default function Attendance() {
 
   const [editingId, setEditingId] = useState(null);
 
-  // =========================
-  // FETCH ATTENDANCE
-  // =========================
+  // FETCH
 
   const fetchAttendance = async () => {
 
@@ -41,9 +39,7 @@ export default function Attendance() {
 
   }, []);
 
-  // =========================
-  // ADD / UPDATE ATTENDANCE
-  // =========================
+  // SAVE
 
   const saveAttendance = async () => {
 
@@ -54,21 +50,22 @@ export default function Attendance() {
       !date ||
       !time
     ) {
+
       alert("All fields are mandatory");
       return;
+
     }
 
     const data = {
       member_name: memberName,
       class_name: className,
-      status: status,
-      date: date,
-      time: time
+      status,
+      date,
+      time
     };
 
     try {
 
-      // UPDATE
       if (editingId) {
 
         await axios.put(
@@ -78,10 +75,7 @@ export default function Attendance() {
 
         setEditingId(null);
 
-      }
-
-      // ADD
-      else {
+      } else {
 
         await axios.post(
           `${API}/attendance`,
@@ -92,7 +86,6 @@ export default function Attendance() {
 
       fetchAttendance();
 
-      // CLEAR
       setMemberName("");
       setClassName("");
       setStatus("");
@@ -106,9 +99,7 @@ export default function Attendance() {
     }
   };
 
-  // =========================
   // DELETE
-  // =========================
 
   const deleteAttendance = async (id) => {
 
@@ -127,9 +118,7 @@ export default function Attendance() {
     }
   };
 
-  // =========================
   // EDIT
-  // =========================
 
   const editAttendance = (item) => {
 
@@ -144,19 +133,19 @@ export default function Attendance() {
 
   return (
 
-    <div className="min-h-screen bg-gray-100 p-8">
+    <div className="min-h-screen bg-black text-white p-6 md:p-10">
 
       {/* HEADER */}
 
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex justify-between items-center mb-10">
 
-        <h1 className="text-4xl font-bold">
+        <h1 className="text-5xl font-bold text-orange-500">
           Attendance Management
         </h1>
 
         <Link
           to="/admin-dashboard"
-          className="bg-gray-800 text-white px-5 py-3 rounded-lg hover:bg-black"
+          className="bg-gray-900 border border-gray-700 px-6 py-3 rounded-xl hover:bg-orange-500 transition"
         >
           ← Back to Dashboard
         </Link>
@@ -165,131 +154,59 @@ export default function Attendance() {
 
       {/* FORM */}
 
-      <div className="bg-white p-6 rounded-2xl shadow mb-8">
+      <div className="bg-gray-900 border border-gray-800 p-8 rounded-3xl mb-10">
 
-        <div className="grid grid-cols-12 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
 
-          {/* MEMBER */}
+          <input
+            type="text"
+            placeholder="Member Name"
+            value={memberName}
+            onChange={(e) => setMemberName(e.target.value)}
+            className="bg-black border border-gray-700 p-4 rounded-xl"
+          />
 
-          <div className="col-span-4">
+          <input
+            type="text"
+            placeholder="Class Name"
+            value={className}
+            onChange={(e) => setClassName(e.target.value)}
+            className="bg-black border border-gray-700 p-4 rounded-xl"
+          />
 
-            <label className="font-semibold block mb-2">
-              Member Name
-            </label>
+          <select
+            value={status}
+            onChange={(e) => setStatus(e.target.value)}
+            className="bg-black border border-gray-700 p-4 rounded-xl"
+          >
+            <option value="">Select Status</option>
+            <option value="Present">Present</option>
+            <option value="Absent">Absent</option>
+            <option value="Leave">Leave</option>
+          </select>
 
-            <input
-              type="text"
-              placeholder="Enter member name"
-              value={memberName}
-              onChange={(e) =>
-                setMemberName(e.target.value)
-              }
-              className="border p-3 rounded-lg w-full"
-            />
+          <input
+            type="time"
+            value={time}
+            onChange={(e) => setTime(e.target.value)}
+            className="bg-black border border-gray-700 p-4 rounded-xl"
+          />
 
-          </div>
-
-          {/* CLASS */}
-
-          <div className="col-span-4">
-
-            <label className="font-semibold block mb-2">
-              Class Name
-            </label>
-
-            <input
-              type="text"
-              placeholder="Enter class name"
-              value={className}
-              onChange={(e) =>
-                setClassName(e.target.value)
-              }
-              className="border p-3 rounded-lg w-full"
-            />
-
-          </div>
-
-          {/* STATUS */}
-
-          <div className="col-span-2">
-
-            <label className="font-semibold block mb-2">
-              Status
-            </label>
-
-            <select
-              value={status}
-              onChange={(e) =>
-                setStatus(e.target.value)
-              }
-              className="border p-3 rounded-lg w-full"
-            >
-              <option value="">
-                Select
-              </option>
-
-              <option value="Present">
-                Present
-              </option>
-
-              <option value="Absent">
-                Absent
-              </option>
-
-              <option value="Leave">
-                Leave
-              </option>
-
-            </select>
-
-          </div>
-
-          {/* TIME */}
-
-          <div className="col-span-2">
-
-            <label className="font-semibold block mb-2">
-              Time
-            </label>
-
-            <input
-              type="time"
-              value={time}
-              onChange={(e) =>
-                setTime(e.target.value)
-              }
-              className="border p-3 rounded-lg w-full"
-            />
-
-          </div>
-
-          {/* DATE */}
-
-          <div className="col-span-3">
-
-            <label className="font-semibold block mb-2">
-              Date
-            </label>
-
-            <input
-              type="date"
-              value={date}
-              onChange={(e) =>
-                setDate(e.target.value)
-              }
-              className="border p-3 rounded-lg w-full"
-            />
-
-          </div>
+          <input
+            type="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            className="bg-black border border-gray-700 p-4 rounded-xl"
+          />
 
         </div>
 
         <button
           onClick={saveAttendance}
-          className={`mt-6 px-6 py-3 rounded-lg text-white ${
+          className={`mt-8 px-8 py-4 rounded-xl font-bold transition ${
             editingId
-              ? "bg-green-600"
-              : "bg-blue-600"
+              ? "bg-green-600 hover:bg-green-700"
+              : "bg-orange-500 hover:bg-orange-600"
           }`}
         >
           {editingId
@@ -301,100 +218,104 @@ export default function Attendance() {
 
       {/* TABLE */}
 
-      <div className="bg-white p-6 rounded-2xl shadow overflow-auto">
+      <div className="bg-gray-900 border border-gray-800 rounded-3xl overflow-hidden">
 
-        <table className="w-full">
+        <div className="overflow-auto">
 
-          <thead>
+          <table className="w-full">
 
-            <tr className="border-b bg-gray-100">
+            <thead className="bg-black">
 
-              <th className="p-4 text-left">
-                Member
-              </th>
+              <tr>
 
-              <th className="p-4 text-left">
-                Class
-              </th>
+                <th className="p-5 text-left text-orange-500">
+                  Member
+                </th>
 
-              <th className="p-4 text-left">
-                Status
-              </th>
+                <th className="p-5 text-left text-orange-500">
+                  Class
+                </th>
 
-              <th className="p-4 text-left">
-                Time
-              </th>
+                <th className="p-5 text-left text-orange-500">
+                  Status
+                </th>
 
-              <th className="p-4 text-left">
-                Date
-              </th>
+                <th className="p-5 text-left text-orange-500">
+                  Time
+                </th>
 
-              <th className="p-4 text-center">
-                Actions
-              </th>
+                <th className="p-5 text-left text-orange-500">
+                  Date
+                </th>
 
-            </tr>
-
-          </thead>
-
-          <tbody>
-
-            {attendance.map((item) => (
-
-              <tr
-                key={item.id}
-                className="border-b hover:bg-gray-50"
-              >
-
-                <td className="p-4">
-                  {item.member_name}
-                </td>
-
-                <td className="p-4">
-                  {item.class_name}
-                </td>
-
-                <td className="p-4">
-                  {item.status}
-                </td>
-
-                <td className="p-4">
-                  {item.time}
-                </td>
-
-                <td className="p-4">
-                  {item.date}
-                </td>
-
-                <td className="p-4 text-center">
-
-                  <button
-                    onClick={() =>
-                      editAttendance(item)
-                    }
-                    className="bg-yellow-500 text-white px-4 py-2 rounded-lg mr-2"
-                  >
-                    Edit
-                  </button>
-
-                  <button
-                    onClick={() =>
-                      deleteAttendance(item.id)
-                    }
-                    className="bg-red-500 text-white px-4 py-2 rounded-lg"
-                  >
-                    Delete
-                  </button>
-
-                </td>
+                <th className="p-5 text-center text-orange-500">
+                  Actions
+                </th>
 
               </tr>
 
-            ))}
+            </thead>
 
-          </tbody>
+            <tbody>
 
-        </table>
+              {attendance.map((item) => (
+
+                <tr
+                  key={item.id}
+                  className="border-t border-gray-800 hover:bg-gray-800 transition"
+                >
+
+                  <td className="p-5">
+                    {item.member_name}
+                  </td>
+
+                  <td className="p-5">
+                    {item.class_name}
+                  </td>
+
+                  <td className="p-5">
+                    {item.status}
+                  </td>
+
+                  <td className="p-5">
+                    {item.time}
+                  </td>
+
+                  <td className="p-5">
+                    {item.date}
+                  </td>
+
+                  <td className="p-5 text-center">
+
+                    <button
+                      onClick={() =>
+                        editAttendance(item)
+                      }
+                      className="bg-yellow-500 hover:bg-yellow-600 px-5 py-2 rounded-lg mr-3"
+                    >
+                      Edit
+                    </button>
+
+                    <button
+                      onClick={() =>
+                        deleteAttendance(item.id)
+                      }
+                      className="bg-red-500 hover:bg-red-600 px-5 py-2 rounded-lg"
+                    >
+                      Delete
+                    </button>
+
+                  </td>
+
+                </tr>
+
+              ))}
+
+            </tbody>
+
+          </table>
+
+        </div>
 
       </div>
 

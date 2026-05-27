@@ -42,14 +42,11 @@ export default function Classes() {
 
   const saveClass = async () => {
 
-    if (
-      !name ||
-      !trainer ||
-      !time ||
-      !members
-    ) {
+    if (!name || !trainer || !time || !members) {
+
       alert("All fields are mandatory");
       return;
+
     }
 
     const data = {
@@ -61,8 +58,6 @@ export default function Classes() {
 
     try {
 
-      // UPDATE
-
       if (editingId) {
 
         await axios.put(
@@ -72,11 +67,7 @@ export default function Classes() {
 
         setEditingId(null);
 
-      }
-
-      // ADD
-
-      else {
+      } else {
 
         await axios.post(
           `${API}/classes`,
@@ -105,9 +96,7 @@ export default function Classes() {
 
     try {
 
-      await axios.delete(
-        `${API}/classes/${id}`
-      );
+      await axios.delete(`${API}/classes/${id}`);
 
       fetchClasses();
 
@@ -132,19 +121,19 @@ export default function Classes() {
 
   return (
 
-    <div className="min-h-screen bg-gray-100 p-8">
+    <div className="min-h-screen bg-black text-white p-6 md:p-10">
 
       {/* HEADER */}
 
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex justify-between items-center mb-10">
 
-        <h1 className="text-4xl font-bold">
+        <h1 className="text-5xl font-bold text-orange-500">
           Class Management
         </h1>
 
         <Link
           to="/admin-dashboard"
-          className="bg-gray-800 text-white px-5 py-3 rounded-lg hover:bg-black"
+          className="bg-gray-900 border border-gray-700 px-6 py-3 rounded-xl hover:bg-orange-500 transition"
         >
           ← Back to Dashboard
         </Link>
@@ -153,194 +142,144 @@ export default function Classes() {
 
       {/* FORM */}
 
-      <div className="bg-white p-6 rounded-2xl shadow mb-8">
+      <div className="bg-gray-900 border border-gray-800 p-8 rounded-3xl mb-10">
 
-        <div className="grid grid-cols-12 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-          {/* CLASS NAME */}
+          <input
+            type="text"
+            placeholder="Class Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="bg-black border border-gray-700 p-4 rounded-xl"
+          />
 
-          <div className="col-span-4">
+          <input
+            type="text"
+            placeholder="Trainer Name"
+            value={trainer}
+            onChange={(e) => setTrainer(e.target.value)}
+            className="bg-black border border-gray-700 p-4 rounded-xl"
+          />
 
-            <label className="font-semibold block mb-2">
-              Class Name
-            </label>
+          <input
+            type="time"
+            value={time}
+            onChange={(e) => setTime(e.target.value)}
+            className="bg-black border border-gray-700 p-4 rounded-xl"
+          />
 
-            <input
-              type="text"
-              placeholder="Enter class name"
-              value={name}
-              onChange={(e) =>
-                setName(e.target.value)
-              }
-              className="border p-3 rounded-lg w-full"
-            />
-
-          </div>
-
-          {/* TRAINER */}
-
-          <div className="col-span-4">
-
-            <label className="font-semibold block mb-2">
-              Trainer
-            </label>
-
-            <input
-              type="text"
-              placeholder="Trainer name"
-              value={trainer}
-              onChange={(e) =>
-                setTrainer(e.target.value)
-              }
-              className="border p-3 rounded-lg w-full"
-            />
-
-          </div>
-
-          {/* TIME */}
-
-          <div className="col-span-2">
-
-            <label className="font-semibold block mb-2">
-              Time
-            </label>
-
-            <input
-              type="time"
-              value={time}
-              onChange={(e) =>
-                setTime(e.target.value)
-              }
-              className="border p-3 rounded-lg w-full"
-            />
-
-          </div>
-
-          {/* MEMBERS */}
-
-          <div className="col-span-2">
-
-            <label className="font-semibold block mb-2">
-              Members
-            </label>
-
-            <input
-              type="number"
-              placeholder="0"
-              value={members}
-              onChange={(e) =>
-                setMembers(e.target.value)
-              }
-              className="border p-3 rounded-lg w-full"
-            />
-
-          </div>
+          <input
+            type="number"
+            placeholder="Members"
+            value={members}
+            onChange={(e) => setMembers(e.target.value)}
+            className="bg-black border border-gray-700 p-4 rounded-xl"
+          />
 
         </div>
 
         <button
           onClick={saveClass}
-          className={`mt-6 px-6 py-3 rounded-lg text-white ${
+          className={`mt-8 px-8 py-4 rounded-xl font-bold transition ${
             editingId
-              ? "bg-green-600"
-              : "bg-blue-600"
+              ? "bg-green-600 hover:bg-green-700"
+              : "bg-orange-500 hover:bg-orange-600"
           }`}
         >
-          {editingId
-            ? "Update Class"
-            : "Add Class"}
+          {editingId ? "Update Class" : "Add Class"}
         </button>
 
       </div>
 
       {/* TABLE */}
 
-      <div className="bg-white p-6 rounded-2xl shadow overflow-auto">
+      <div className="bg-gray-900 border border-gray-800 rounded-3xl overflow-hidden">
 
-        <table className="w-full">
+        <div className="overflow-auto">
 
-          <thead>
+          <table className="w-full">
 
-            <tr className="border-b bg-gray-100">
+            <thead className="bg-black">
 
-              <th className="p-4 text-left">
-                Class
-              </th>
+              <tr>
 
-              <th className="p-4 text-left">
-                Trainer
-              </th>
+                <th className="p-5 text-left text-orange-500">
+                  Class
+                </th>
 
-              <th className="p-4 text-left">
-                Time
-              </th>
+                <th className="p-5 text-left text-orange-500">
+                  Trainer
+                </th>
 
-              <th className="p-4 text-left">
-                Members
-              </th>
+                <th className="p-5 text-left text-orange-500">
+                  Time
+                </th>
 
-              <th className="p-4 text-center">
-                Actions
-              </th>
+                <th className="p-5 text-left text-orange-500">
+                  Members
+                </th>
 
-            </tr>
-
-          </thead>
-
-          <tbody>
-
-            {classes.map((item) => (
-
-              <tr
-                key={item.id}
-                className="border-b hover:bg-gray-50"
-              >
-
-                <td className="p-4">
-                  {item.name}
-                </td>
-
-                <td className="p-4">
-                  {item.trainer}
-                </td>
-
-                <td className="p-4">
-                  {item.time}
-                </td>
-
-                <td className="p-4">
-                  {item.members}
-                </td>
-
-                <td className="p-4 text-center">
-
-                  <button
-                    onClick={() =>
-                      editClass(item)
-                    }
-                    className="bg-yellow-500 text-white px-4 py-2 rounded-lg mr-2"
-                  >
-                    Edit
-                  </button>
-
-                  <button
-                    onClick={() =>
-                      deleteClass(item.id)
-                    }
-                    className="bg-red-500 text-white px-4 py-2 rounded-lg"
-                  >
-                    Delete
-                  </button>
-
-                </td>
+                <th className="p-5 text-center text-orange-500">
+                  Actions
+                </th>
 
               </tr>
 
-            ))}
+            </thead>
 
-          </tbody>
+            <tbody>
 
-        </table>
+              {classes.map((item) => (
+
+                <tr
+                  key={item.id}
+                  className="border-t border-gray-800 hover:bg-gray-800 transition"
+                >
+
+                  <td className="p-5">
+                    {item.name}
+                  </td>
+
+                  <td className="p-5">
+                    {item.trainer}
+                  </td>
+
+                  <td className="p-5">
+                    {item.time}
+                  </td>
+
+                  <td className="p-5">
+                    {item.members}
+                  </td>
+
+                  <td className="p-5 text-center">
+
+                    <button
+                      onClick={() => editClass(item)}
+                      className="bg-yellow-500 hover:bg-yellow-600 px-5 py-2 rounded-lg mr-3"
+                    >
+                      Edit
+                    </button>
+
+                    <button
+                      onClick={() => deleteClass(item.id)}
+                      className="bg-red-500 hover:bg-red-600 px-5 py-2 rounded-lg"
+                    >
+                      Delete
+                    </button>
+
+                  </td>
+
+                </tr>
+
+              ))}
+
+            </tbody>
+
+          </table>
+
+        </div>
 
       </div>
 
