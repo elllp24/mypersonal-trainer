@@ -2,12 +2,20 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+
+import AdminDashboard from "./pages/AdminDashboard";
+import TrainerDashboard from "./pages/TrainerDashboard";
+import MemberDashboard from "./pages/MemberDashboard";
+
 import Classes from "./pages/Classes";
 import Attendance from "./pages/Attendance";
 
-import AdminDashboard from "./pages/AdminDashboard";
+import TrainerManagement from "./pages/TrainerManagement";
 
-function App() {
+import MemberManagement from "./pages/MemberManagement";
+
+
+export default function App() {
 
   return (
 
@@ -15,17 +23,66 @@ function App() {
 
       <Routes>
 
-        <Route path="/" element={<Home />} />
+        {/* HOME */}
 
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/"
+          element={<Home />}
+        />
 
-        <Route path="/classes" element={<Classes />} />
 
-        <Route path="/attendance" element={<Attendance />} />
+        {/* LOGIN */}
+
+        <Route
+          path="/login"
+          element={<Login />}
+        />
+
+
+        {/* DASHBOARDS */}
 
         <Route
           path="/admin-dashboard"
           element={<AdminDashboard />}
+        />
+
+        <Route
+          path="/trainer-dashboard"
+          element={<TrainerDashboard />}
+        />
+
+        <Route
+          path="/member-dashboard"
+          element={<MemberDashboard />}
+        />
+
+
+        {/* CLASSES */}
+
+        <Route
+          path="/classes"
+          element={<Classes />}
+        />
+
+
+        {/* ATTENDANCE */}
+
+        <Route
+          path="/attendance"
+          element={<Attendance />}
+        />
+
+
+        {/* TRAINER MANAGEMENT */}
+
+        <Route
+          path="/trainer-management"
+          element={<TrainerManagement />}
+        />
+
+<Route
+          path="/members"
+          element={<MemberManagement />}
         />
 
       </Routes>
@@ -33,5 +90,3 @@ function App() {
     </BrowserRouter>
   );
 }
-
-export default App;

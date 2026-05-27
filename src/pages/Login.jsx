@@ -40,6 +40,12 @@ export default function Login() {
       role === "Admin"
     ) {
 
+      // SAVE ROLE
+
+      localStorage.setItem("role", "admin");
+
+      localStorage.setItem("email", email);
+
       navigate("/admin-dashboard");
     }
 
@@ -53,6 +59,12 @@ export default function Login() {
       password === "trainer123" &&
       role === "Trainer"
     ) {
+
+      // SAVE ROLE
+
+      localStorage.setItem("role", "trainer");
+
+      localStorage.setItem("email", email);
 
       navigate("/trainer-dashboard");
     }
@@ -68,6 +80,12 @@ export default function Login() {
       role === "Member"
     ) {
 
+      // SAVE ROLE
+
+      localStorage.setItem("role", "member");
+
+      localStorage.setItem("email", email);
+
       navigate("/member-dashboard");
     }
 
@@ -80,15 +98,27 @@ export default function Login() {
 
   return (
 
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+    <div className="min-h-screen bg-black flex items-center justify-center px-4">
 
-      <div className="bg-white p-10 rounded-2xl shadow-xl w-[420px]">
+      <div className="bg-gradient-to-b from-gray-900 to-black border border-orange-500 p-8 md:p-10 rounded-3xl shadow-2xl w-full max-w-md">
 
         {/* TITLE */}
 
-        <h1 className="text-5xl font-bold text-center text-blue-600 mb-8">
-          Login
-        </h1>
+        <div className="text-center mb-8">
+
+          <div className="w-20 h-20 bg-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-5 text-4xl font-bold">
+            M
+          </div>
+
+          <h1 className="text-4xl md:text-5xl font-bold text-orange-500 mb-2">
+            Login
+          </h1>
+
+          <p className="text-gray-400">
+            Welcome to MyPersonal Trainer
+          </p>
+
+        </div>
 
 
         {/* EMAIL */}
@@ -98,7 +128,7 @@ export default function Login() {
           placeholder="Enter Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full border p-4 rounded-xl mb-4"
+          className="w-full bg-black border border-gray-700 text-white p-4 rounded-xl mb-4 focus:outline-none focus:border-orange-500"
         />
 
 
@@ -109,7 +139,7 @@ export default function Login() {
           placeholder="Enter Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full border p-4 rounded-xl mb-4"
+          className="w-full bg-black border border-gray-700 text-white p-4 rounded-xl mb-4 focus:outline-none focus:border-orange-500"
         />
 
 
@@ -118,7 +148,7 @@ export default function Login() {
         <select
           value={role}
           onChange={(e) => setRole(e.target.value)}
-          className="w-full border p-4 rounded-xl mb-4"
+          className="w-full bg-black border border-gray-700 text-white p-4 rounded-xl mb-4 focus:outline-none focus:border-orange-500"
         >
 
           <option value="">
@@ -144,9 +174,11 @@ export default function Login() {
 
         {error && (
 
-          <p className="text-red-500 mb-4">
+          <div className="bg-red-500/20 border border-red-500 text-red-400 p-4 rounded-xl mb-4">
+
             {error}
-          </p>
+
+          </div>
 
         )}
 
@@ -155,7 +187,7 @@ export default function Login() {
 
         <button
           onClick={handleLogin}
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-xl text-lg font-semibold"
+          className="w-full bg-orange-500 hover:bg-orange-600 transition duration-300 text-white py-4 rounded-xl text-lg font-bold shadow-lg"
         >
           Login
         </button>
@@ -167,9 +199,9 @@ export default function Login() {
 
           <Link
             to="/"
-            className="text-blue-600 hover:underline"
+            className="text-orange-500 hover:text-orange-400 transition"
           >
-            Back to Home
+            ← Back to Home
           </Link>
 
         </div>
@@ -177,23 +209,59 @@ export default function Login() {
 
         {/* DEMO LOGIN */}
 
-        <div className="mt-8 bg-gray-100 p-4 rounded-xl text-sm">
+        <div className="mt-8 bg-black border border-gray-800 p-5 rounded-2xl">
 
-          <p className="font-bold mb-2">
+          <h2 className="text-orange-500 font-bold text-lg mb-4">
             Demo Login
-          </p>
+          </h2>
 
-          <p>
-            Admin → admin@gmail.com / admin123
-          </p>
+          <div className="space-y-3 text-gray-300 text-sm">
 
-          <p>
-            Trainer → trainer@gmail.com / trainer123
-          </p>
+            <div className="bg-gray-900 p-3 rounded-xl">
+              <p className="font-bold text-orange-400">
+                Admin
+              </p>
 
-          <p>
-            Member → member@gmail.com / member123
-          </p>
+              <p>
+                admin@gmail.com
+              </p>
+
+              <p>
+                admin123
+              </p>
+            </div>
+
+
+            <div className="bg-gray-900 p-3 rounded-xl">
+              <p className="font-bold text-orange-400">
+                Trainer
+              </p>
+
+              <p>
+                trainer@gmail.com
+              </p>
+
+              <p>
+                trainer123
+              </p>
+            </div>
+
+
+            <div className="bg-gray-900 p-3 rounded-xl">
+              <p className="font-bold text-orange-400">
+                Member
+              </p>
+
+              <p>
+                member@gmail.com
+              </p>
+
+              <p>
+                member123
+              </p>
+            </div>
+
+          </div>
 
         </div>
 

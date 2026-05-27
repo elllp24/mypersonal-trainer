@@ -1,7 +1,21 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
 
 export default function Home() {
+
+   
+   const [plans, setPlans] = useState([]);
+
+  useEffect(() => {
+
+    fetch("http://127.0.0.1:8000/pricing")
+      .then((res) => res.json())
+      .then((data) => setPlans(data))
+      .catch((err) => console.log(err));
+
+  }, []);
+
 
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -703,52 +717,60 @@ export default function Home() {
 
 
 
-      {/* PRICING */}
+      {/* PRICING SECTION */}
 
-      <section
-        id="pricing"
-        className="py-16 md:py-24 px-4 md:px-10 bg-gray-950"
-      >
+<section
+  id="pricing"
+  className="py-20 px-6 bg-black text-white"
+>
 
-        <div className="max-w-7xl mx-auto">
+  <div className="max-w-7xl mx-auto">
 
-          <h1 className="text-3xl md:text-5xl font-bold text-center text-orange-500 mb-16">
-            Pricing Plans
+    <h1 className="text-4xl md:text-5xl font-bold text-center text-orange-500 mb-16">
+      Membership Plans
+    </h1>
+
+
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      {plans.map((plan) => (
+
+        <div
+          key={plan.id}
+          className="bg-gray-900 border border-gray-800 rounded-3xl p-8 hover:border-orange-500 transition"
+        >
+
+          <h2 className="text-3xl font-bold text-orange-500 mb-5">
+            {plan.title}
+          </h2>
+
+
+          <h1 className="text-5xl font-bold mb-3">
+            {plan.price}
           </h1>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-            {[
-              {
-                title: "Basic",
-                price: "$29"
-              },
-              {
-                title: "Standard",
-                price: "$59"
-              },
-              {
-                title: "Premium",
-                price: "$99"
-              }
-            ].map((plan, index) => (
+          <p className="text-gray-400 mb-8">
+            {plan.duration}
+          </p>
+
+
+          <div className="space-y-4 mb-8">
+
+            {plan.features.map((feature, index) => (
 
               <div
                 key={index}
-                className="bg-black rounded-3xl p-10 border border-gray-800 hover:border-orange-500 text-center"
+                className="flex items-center gap-3"
               >
 
-                <h2 className="text-3xl font-bold text-orange-500 mb-4">
-                  {plan.title}
-                </h2>
+                <span className="text-green-500">
+                  ✔
+                </span>
 
-                <h1 className="text-5xl font-bold mb-6">
-                  {plan.price}
-                </h1>
-
-                <button className="bg-orange-500 px-8 py-3 rounded-xl font-bold hover:bg-orange-600">
-                  Choose Plan
-                </button>
+                <p>
+                  {feature}
+                </p>
 
               </div>
 
@@ -756,10 +778,22 @@ export default function Home() {
 
           </div>
 
+
+          <button
+            className="w-full bg-orange-500 hover:bg-orange-600 py-4 rounded-2xl font-bold"
+          >
+            Join Now
+          </button>
+
         </div>
 
-      </section>
+      ))}
 
+    </div>
+
+  </div>
+
+</section>
 
 
       {/* FAQ */}
