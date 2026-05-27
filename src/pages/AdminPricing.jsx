@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function AdminPricing() {
+
+  const navigate = useNavigate();
 
   const [plans, setPlans] = useState([]);
 
@@ -11,7 +14,27 @@ export default function AdminPricing() {
   const [features, setFeatures] = useState("");
 
 
+  // =========================
+  // AUTH CHECK
+  // =========================
+
+  useEffect(() => {
+
+    const role = localStorage.getItem("role");
+
+    if (role !== "admin") {
+
+      navigate("/login");
+
+    }
+
+  }, [navigate]);
+
+
+
+  // =========================
   // FETCH PLANS
+  // =========================
 
   const fetchPlans = async () => {
 
@@ -40,7 +63,9 @@ export default function AdminPricing() {
 
 
 
+  // =========================
   // ADD PLAN
+  // =========================
 
   const addPlan = async (e) => {
 
@@ -77,7 +102,9 @@ export default function AdminPricing() {
 
 
 
+  // =========================
   // DELETE PLAN
+  // =========================
 
   const deletePlan = async (id) => {
 
@@ -99,9 +126,58 @@ export default function AdminPricing() {
 
 
 
+  // =========================
+  // LOGOUT
+  // =========================
+
+  const logout = () => {
+
+    localStorage.removeItem("role");
+    localStorage.removeItem("email");
+
+    navigate("/login");
+  };
+
+
+
+  // =========================
+  // DASHBOARD
+  // =========================
+
+  const goDashboard = () => {
+
+    navigate("/dashboard");
+  };
+
+
+
   return (
 
     <div className="min-h-screen bg-black text-white p-6 md:p-10">
+
+
+      {/* HEADER */}
+
+      <div className="flex justify-between items-center mb-10">
+
+        <button
+          onClick={goDashboard}
+          className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-xl font-bold"
+        >
+          ← Dashboard
+        </button>
+
+
+        <button
+          onClick={logout}
+          className="bg-red-600 hover:bg-red-700 px-6 py-3 rounded-xl font-bold"
+        >
+          Logout
+        </button>
+
+      </div>
+
+
 
       <h1 className="text-4xl md:text-5xl font-bold text-orange-500 mb-10">
         Manage Pricing Plans
