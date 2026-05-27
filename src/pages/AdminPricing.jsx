@@ -146,7 +146,7 @@ export default function AdminPricing() {
 
   const goDashboard = () => {
 
-    navigate("/dashboard");
+    navigate("/admin-dashboard");
   };
 
 
