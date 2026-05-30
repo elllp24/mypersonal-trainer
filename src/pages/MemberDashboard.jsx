@@ -12,6 +12,12 @@ export default function MemberDashboard() {
 
   };
 
+  const backDashboard = () => {
+
+    navigate("/admin-dashboard");
+
+  };
+
   return (
 
     <div className="min-h-screen bg-black text-white p-8">
@@ -32,15 +38,25 @@ export default function MemberDashboard() {
 
         </div>
 
-        <button
-          onClick={logout}
-          className="bg-red-500 hover:bg-red-600 px-6 py-3 rounded-xl font-bold"
-        >
-          Logout
-        </button>
+        <div className="flex gap-4">
+
+          <button
+            onClick={backDashboard}
+            className="bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-xl font-bold"
+          >
+            Back to Dashboard
+          </button>
+
+          <button
+            onClick={logout}
+            className="bg-red-500 hover:bg-red-600 px-6 py-3 rounded-xl font-bold"
+          >
+            Logout
+          </button>
+
+        </div>
 
       </div>
-
 
       {/* MEMBER INFO */}
 
@@ -48,7 +64,7 @@ export default function MemberDashboard() {
 
         {/* MY CLASSES */}
 
-        <div className="bg-gray-900 border border-gray-800 rounded-3xl p-10">
+        <div className="bg-gray-900 border border-gray-800 rounded-3xl p-10 hover:border-orange-500 transition">
 
           <h2 className="text-3xl font-bold text-orange-500 mb-4">
             My Classes
@@ -60,10 +76,9 @@ export default function MemberDashboard() {
 
         </div>
 
-
         {/* ATTENDANCE */}
 
-        <div className="bg-gray-900 border border-gray-800 rounded-3xl p-10">
+        <div className="bg-gray-900 border border-gray-800 rounded-3xl p-10 hover:border-orange-500 transition">
 
           <h2 className="text-3xl font-bold text-orange-500 mb-4">
             Attendance
@@ -75,10 +90,9 @@ export default function MemberDashboard() {
 
         </div>
 
-
         {/* MEMBERSHIP */}
 
-        <div className="bg-gray-900 border border-gray-800 rounded-3xl p-10">
+        <div className="bg-gray-900 border border-gray-800 rounded-3xl p-10 hover:border-orange-500 transition">
 
           <h2 className="text-3xl font-bold text-orange-500 mb-4">
             Membership
