@@ -244,20 +244,33 @@ export default function MemberManagement() {
 
       {/* HEADER */}
 
-      <div className="flex justify-between items-center mb-10">
+      {/* HEADER */}
 
-        <h1 className="text-5xl font-bold text-green-500">
-          Member Management
-        </h1>
+<div className="flex justify-between items-center mb-10">
 
-        <button
-          onClick={logout}
-          className="bg-red-500 hover:bg-red-600 px-6 py-3 rounded-xl"
-        >
-          Logout
-        </button>
+  <h1 className="text-5xl font-bold text-orange-500">
+    Member Management
+  </h1>
 
-      </div>
+  <div className="flex gap-4">
+
+    <button
+      onClick={() => navigate("/admin-dashboard")}
+      className="bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-xl font-semibold"
+    >
+      ← Dashboard
+    </button>
+
+    <button
+      onClick={logout}
+      className="bg-red-500 hover:bg-red-600 px-6 py-3 rounded-xl font-semibold"
+    >
+      Logout
+    </button>
+
+  </div>
+
+</div>
 
 
       {/* FORM */}

@@ -7,13 +7,8 @@ export default function TrainerDashboard() {
   const logout = () => {
 
     localStorage.removeItem("role");
+
     navigate("/login");
-
-  };
-
-  const backDashboard = () => {
-
-    navigate("/admin-dashboard");
 
   };
 
@@ -37,25 +32,15 @@ export default function TrainerDashboard() {
 
         </div>
 
-        <div className="flex gap-4">
-
-          <button
-            onClick={backDashboard}
-            className="bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-xl font-bold"
-          >
-            Back to Dashboard
-          </button>
-
-          <button
-            onClick={logout}
-            className="bg-red-500 hover:bg-red-600 px-6 py-3 rounded-xl font-bold"
-          >
-            Logout
-          </button>
-
-        </div>
+        <button
+          onClick={logout}
+          className="bg-red-500 hover:bg-red-600 px-6 py-3 rounded-xl font-bold"
+        >
+          Logout
+        </button>
 
       </div>
+
 
       {/* CARDS */}
 
@@ -77,6 +62,7 @@ export default function TrainerDashboard() {
           </p>
 
         </Link>
+
 
         {/* ATTENDANCE */}
 
