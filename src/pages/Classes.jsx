@@ -15,7 +15,9 @@ export default function Classes() {
 
   const [editingId, setEditingId] = useState(null);
 
-  // FETCH
+  // =========================
+  // FETCH CLASSES
+  // =========================
 
   const fetchClasses = async () => {
 
@@ -38,15 +40,22 @@ export default function Classes() {
 
   }, []);
 
-  // SAVE
+  // =========================
+  // SAVE CLASS
+  // =========================
 
   const saveClass = async () => {
 
-    if (!name || !trainer || !time || !members) {
+    if (
+      !name ||
+      !trainer ||
+      !time ||
+      !members
+    ) {
 
       alert("All fields are mandatory");
-      return;
 
+      return;
     }
 
     const data = {
@@ -90,13 +99,17 @@ export default function Classes() {
     }
   };
 
-  // DELETE
+  // =========================
+  // DELETE CLASS
+  // =========================
 
   const deleteClass = async (id) => {
 
     try {
 
-      await axios.delete(`${API}/classes/${id}`);
+      await axios.delete(
+        `${API}/classes/${id}`
+      );
 
       fetchClasses();
 
@@ -107,7 +120,9 @@ export default function Classes() {
     }
   };
 
-  // EDIT
+  // =========================
+  // EDIT CLASS
+  // =========================
 
   const editClass = (item) => {
 
@@ -133,9 +148,9 @@ export default function Classes() {
 
         <Link
           to="/admin-dashboard"
-          className="bg-gray-900 border border-gray-700 px-6 py-3 rounded-xl hover:bg-orange-500 transition"
+          className="bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-xl font-semibold"
         >
-          ← Back to Dashboard
+          ← Dashboard
         </Link>
 
       </div>
@@ -150,7 +165,9 @@ export default function Classes() {
             type="text"
             placeholder="Class Name"
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) =>
+              setName(e.target.value)
+            }
             className="bg-black border border-gray-700 p-4 rounded-xl"
           />
 
@@ -158,14 +175,18 @@ export default function Classes() {
             type="text"
             placeholder="Trainer Name"
             value={trainer}
-            onChange={(e) => setTrainer(e.target.value)}
+            onChange={(e) =>
+              setTrainer(e.target.value)
+            }
             className="bg-black border border-gray-700 p-4 rounded-xl"
           />
 
           <input
-            type="time"
+            type="datetime-local"
             value={time}
-            onChange={(e) => setTime(e.target.value)}
+            onChange={(e) =>
+              setTime(e.target.value)
+            }
             className="bg-black border border-gray-700 p-4 rounded-xl"
           />
 
@@ -173,7 +194,9 @@ export default function Classes() {
             type="number"
             placeholder="Members"
             value={members}
-            onChange={(e) => setMembers(e.target.value)}
+            onChange={(e) =>
+              setMembers(e.target.value)
+            }
             className="bg-black border border-gray-700 p-4 rounded-xl"
           />
 
@@ -187,7 +210,11 @@ export default function Classes() {
               : "bg-orange-500 hover:bg-orange-600"
           }`}
         >
-          {editingId ? "Update Class" : "Add Class"}
+          {
+            editingId
+              ? "Update Class"
+              : "Add Class"
+          }
         </button>
 
       </div>
@@ -213,7 +240,7 @@ export default function Classes() {
                 </th>
 
                 <th className="p-5 text-left text-orange-500">
-                  Time
+                  Date & Time
                 </th>
 
                 <th className="p-5 text-left text-orange-500">
@@ -256,14 +283,18 @@ export default function Classes() {
                   <td className="p-5 text-center">
 
                     <button
-                      onClick={() => editClass(item)}
+                      onClick={() =>
+                        editClass(item)
+                      }
                       className="bg-yellow-500 hover:bg-yellow-600 px-5 py-2 rounded-lg mr-3"
                     >
                       Edit
                     </button>
 
                     <button
-                      onClick={() => deleteClass(item.id)}
+                      onClick={() =>
+                        deleteClass(item.id)
+                      }
                       className="bg-red-500 hover:bg-red-600 px-5 py-2 rounded-lg"
                     >
                       Delete
