@@ -37,12 +37,18 @@ class MemberCreate(BaseModel):
 # CLASS SCHEMA
 # =========================================================
 
+from pydantic import BaseModel
+
 class ClassCreate(BaseModel):
 
     name: str
     trainer: str
-    time: str
-    members: int
+
+    schedule: str
+
+    description: str
+
+    assigned_members: str
 
 
 # =========================================================

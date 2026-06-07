@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 export default function Classes() {
 
   const API = "http://127.0.0.1:8000";
@@ -10,14 +13,12 @@ export default function Classes() {
 
   const [name, setName] = useState("");
   const [trainer, setTrainer] = useState("");
-  const [time, setTime] = useState("");
+  const [time, setTime] = useState(new Date());
   const [members, setMembers] = useState("");
 
   const [editingId, setEditingId] = useState(null);
 
-  // =========================
-  // FETCH CLASSES
-  // =========================
+  // FETCH
 
   const fetchClasses = async () => {
 
@@ -40,29 +41,25 @@ export default function Classes() {
 
   }, []);
 
-  // =========================
-  // SAVE CLASS
-  // =========================
+  // SAVE
 
   const saveClass = async () => {
 
-    if (
-      !name ||
-      !trainer ||
-      !time ||
-      !members
-    ) {
+    if (!name || !trainer || !members) {
 
       alert("All fields are mandatory");
 
       return;
+
     }
 
     const data = {
+
       name,
       trainer,
-      time,
+      time: time.toLocaleString(),
       members
+
     };
 
     try {
@@ -89,7 +86,7 @@ export default function Classes() {
 
       setName("");
       setTrainer("");
-      setTime("");
+      setTime(new Date());
       setMembers("");
 
     } catch (err) {
@@ -99,17 +96,13 @@ export default function Classes() {
     }
   };
 
-  // =========================
-  // DELETE CLASS
-  // =========================
+  // DELETE
 
   const deleteClass = async (id) => {
 
     try {
 
-      await axios.delete(
-        `${API}/classes/${id}`
-      );
+      await axios.delete(`${API}/classes/${id}`);
 
       fetchClasses();
 
@@ -120,9 +113,7 @@ export default function Classes() {
     }
   };
 
-  // =========================
-  // EDIT CLASS
-  // =========================
+  // EDIT
 
   const editClass = (item) => {
 
@@ -130,8 +121,9 @@ export default function Classes() {
 
     setName(item.name);
     setTrainer(item.trainer);
-    setTime(item.time);
+
     setMembers(item.members);
+
   };
 
   return (
@@ -165,9 +157,7 @@ export default function Classes() {
             type="text"
             placeholder="Class Name"
             value={name}
-            onChange={(e) =>
-              setName(e.target.value)
-            }
+            onChange={(e) => setName(e.target.value)}
             className="bg-black border border-gray-700 p-4 rounded-xl"
           />
 
@@ -175,28 +165,23 @@ export default function Classes() {
             type="text"
             placeholder="Trainer Name"
             value={trainer}
-            onChange={(e) =>
-              setTrainer(e.target.value)
-            }
+            onChange={(e) => setTrainer(e.target.value)}
             className="bg-black border border-gray-700 p-4 rounded-xl"
           />
 
-          <input
-            type="datetime-local"
-            value={time}
-            onChange={(e) =>
-              setTime(e.target.value)
-            }
-            className="bg-black border border-gray-700 p-4 rounded-xl"
+          <DatePicker
+            selected={time}
+            onChange={(date) => setTime(date)}
+            showTimeSelect
+            dateFormat="dd/MM/yyyy h:mm aa"
+            className="bg-black border border-gray-700 p-4 rounded-xl w-full text-white"
           />
 
           <input
             type="number"
             placeholder="Members"
             value={members}
-            onChange={(e) =>
-              setMembers(e.target.value)
-            }
+            onChange={(e) => setMembers(e.target.value)}
             className="bg-black border border-gray-700 p-4 rounded-xl"
           />
 
@@ -210,11 +195,9 @@ export default function Classes() {
               : "bg-orange-500 hover:bg-orange-600"
           }`}
         >
-          {
-            editingId
-              ? "Update Class"
-              : "Add Class"
-          }
+          {editingId
+            ? "Update Class"
+            : "Add Class"}
         </button>
 
       </div>
@@ -261,7 +244,7 @@ export default function Classes() {
 
                 <tr
                   key={item.id}
-                  className="border-t border-gray-800 hover:bg-gray-800 transition"
+                  className="border-t border-gray-800"
                 >
 
                   <td className="p-5">
@@ -283,18 +266,14 @@ export default function Classes() {
                   <td className="p-5 text-center">
 
                     <button
-                      onClick={() =>
-                        editClass(item)
-                      }
+                      onClick={() => editClass(item)}
                       className="bg-yellow-500 hover:bg-yellow-600 px-5 py-2 rounded-lg mr-3"
                     >
                       Edit
                     </button>
 
                     <button
-                      onClick={() =>
-                        deleteClass(item.id)
-                      }
+                      onClick={() => deleteClass(item.id)}
                       className="bg-red-500 hover:bg-red-600 px-5 py-2 rounded-lg"
                     >
                       Delete
@@ -315,5 +294,6 @@ export default function Classes() {
       </div>
 
     </div>
+
   );
 }

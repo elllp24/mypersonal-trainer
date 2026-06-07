@@ -243,13 +243,12 @@ def create_class(
 ):
 
     new_class = ClassModel(
-
-        name=data.name,
-        trainer=data.trainer,
-        time=data.time,
-        members=data.members
-
-    )
+    name=data.name,
+    trainer=data.trainer,
+    schedule=data.schedule,
+    description=data.description,
+    assigned_members=data.assigned_members
+)
 
     db.add(new_class)
 
@@ -310,8 +309,9 @@ def update_class(
 
         item.name = updated.name
         item.trainer = updated.trainer
-        item.time = updated.time
-        item.members = updated.members
+        item.schedule = updated.schedule
+        item.description = updated.description
+        item.assigned_members = updated.assigned_members
 
         db.commit()
 

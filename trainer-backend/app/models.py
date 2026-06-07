@@ -48,15 +48,18 @@ class Member(Base):
 # =========================================================
 
 class ClassModel(Base):
-
     __tablename__ = "classes"
 
     id = Column(Integer, primary_key=True, index=True)
 
     name = Column(String)
     trainer = Column(String)
-    time = Column(String)
-    members = Column(Integer)
+
+    schedule = Column(String)
+
+    description = Column(String)
+
+    assigned_members = Column(String)
 
 
 # =========================================================
