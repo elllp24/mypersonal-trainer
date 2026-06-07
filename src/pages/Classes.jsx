@@ -9,7 +9,9 @@ export default function Classes() {
 
  // const API = "http://127.0.0.1:8000";
 
-  const API = "https://api.mypersonal-trainer.com";
+ // const API = "https://api.mypersonal-trainer.com";
+
+  const API = "https://your-backend.onrender.com";
 
   const [classes, setClasses] = useState([]);
 
