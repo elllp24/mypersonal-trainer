@@ -7,7 +7,9 @@ import "react-datepicker/dist/react-datepicker.css";
 
 export default function Classes() {
 
-  const API = "http://127.0.0.1:8000";
+ // const API = "http://127.0.0.1:8000";
+
+  const API = "https://api.mypersonal-trainer.com";
 
   const [classes, setClasses] = useState([]);
 
