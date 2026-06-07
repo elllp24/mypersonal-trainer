@@ -11,7 +11,7 @@ export default function Classes() {
 
  // const API = "https://api.mypersonal-trainer.com";
 
-  const API = "https://your-backend.onrender.com";
+  const API = "https://mypersonal-trainer-backend.onrender.com";
 
   const [classes, setClasses] = useState([]);
 
